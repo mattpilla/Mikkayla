@@ -72,8 +72,8 @@ bot.on('message', (msg) => {
             // All commands take an optional parameter to mention the bot
             if (!args[1] || args[1].includes(bot.user.id)) {
                 if (args[0] === '.sleep') {
-                        say('later');
-                        bot.user.setStatus('dnd');
+                    say('later');
+                    bot.user.setStatus('dnd');
                 } else if (msg.content === '.update') {
                     say('give me a sec..');
                     require('child_process').exec('git pull');
