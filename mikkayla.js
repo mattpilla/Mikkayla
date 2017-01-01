@@ -34,7 +34,7 @@ bot.on('message', msg => {
         say('`' + display + ':` ' + zfgQuotes[index]);
     } else if (args[0] == '.razor') {
         let razorOpts = ['skip ', '', 'early '];
-        say('You might be able to get ' + read(items) + read(razorOpts) + ' with ' + read(tech) + '.');
+        say('You might be able to get ' + read(items) + ' ' + read(razorOpts) + 'with ' + read(tech) + '.');
     } else if (msg.content.toLowerCase().includes('mikkayla')) {
         say(read(mikkaylaLines));
     } else if (msg.content === '.roulette') {
