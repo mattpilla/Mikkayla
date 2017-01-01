@@ -33,8 +33,8 @@ bot.on('message', msg => {
         let display = index + 1;
         say('`' + display + ':` ' + zfgQuotes[index]);
     } else if (args[0] == '.razor') {
-        let razorOpts = ['skip', '', 'early'];
-        say('You might be able to get ' + read(items) + ' ' + read(razorOpts) + ' with ' + read(tech) + '.');
+        let razorOpts = ['skip ', '', 'early '];
+        say('You might be able to get ' + read(items) + read(razorOpts) + ' with ' + read(tech) + '.');
     } else if (msg.content.toLowerCase().includes('mikkayla')) {
         say(read(mikkaylaLines));
     } else if (msg.content === '.roulette') {
@@ -49,6 +49,11 @@ bot.on('message', msg => {
             gun--;
             say('u live.. for now :relieved: :ok_hand:');
         }
+    } else if (msg.content === '.devastate' && msg.author.id === '85521124766539776') {
+        say('see ya');
+        setTimeout(function() {
+            process.exit();
+        }, 1000);
     }
 });
 
