@@ -11,7 +11,7 @@ var tech = JSON.parse(fs.readFileSync('json/tech.json', 'utf8'));
 
 var gun = 0;
 
-bot.on('message', msg => {
+bot.on('message', (msg) => {
     if (msg.author.bot) {
         return;
     }
@@ -50,6 +50,7 @@ bot.on('message', msg => {
             say('u live.. for now :relieved:');
         }
     } else if (msg.content === '.update' && msg.author.id === '85521124766539776') {
+        say('give me a sec..');
         require('child_process').exec('git pull');
     } else if (msg.content === '.devastate' && msg.author.id === '85521124766539776') {
         say('see ya');
@@ -59,8 +60,14 @@ bot.on('message', msg => {
     }
 });
 
+bot.on('guildMemberRemove', (member) => {
+    const guild = member.guild;
+    guild.channels.get(guild.id).sendMessage('that fucker finally left');
+});
+
 bot.on('ready', () => {
     console.log('lets do this shit');
+    bot.channels.get('264605971421200385').sendMessage('hiya :)');
 });
 
 function randInt(max) {
