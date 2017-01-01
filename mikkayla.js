@@ -24,10 +24,12 @@ bot.on('message', (msg) => {
 
     // Get each word of command in an array
     let args = msg.content.split(' ');
+    // Is sender admin?
+    let admin = (msg.author.id === '85521124766539776');
 
     // Ignore everything if sleeping
     if (bot.user.presence.status === 'dnd') {
-        if (args[0] === '.wake') {
+        if (admin && args[0] === '.wake') {
             if (!args[1] || args[1].includes(bot.user.id)) {
                 say('hiya :)');
                 bot.user.setStatus('online');
@@ -66,20 +68,21 @@ bot.on('message', (msg) => {
         /***
          * Admin Shit
          ***/
-        else if (msg.author.id === '85521124766539776' && msg.content.charAt(0) === '.') {
-            if (args[0] === '.sleep') {
-                if (!args[1] || args[1].includes(bot.user.id)) {
-                    say('later');
-                    bot.user.setStatus('dnd');
+        else if (admin && msg.content.charAt(0) === '.') {
+            // All commands take an optional parameter to mention the bot
+            if (!args[1] || args[1].includes(bot.user.id)) {
+                if (args[0] === '.sleep') {
+                        say('later');
+                        bot.user.setStatus('dnd');
+                } else if (msg.content === '.update') {
+                    say('give me a sec..');
+                    require('child_process').exec('git pull');
+                } else if (msg.content === '.devastate') {
+                    say('see ya');
+                    setTimeout(function() {
+                        process.exit();
+                    }, 1000);
                 }
-            } else if (msg.content === '.update') {
-                say('give me a sec..');
-                require('child_process').exec('git pull');
-            } else if (msg.content === '.devastate') {
-                say('see ya');
-                setTimeout(function() {
-                    process.exit();
-                }, 1000);
             }
         }
     }
