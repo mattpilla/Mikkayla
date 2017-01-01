@@ -74,10 +74,10 @@ bot.on('message', (msg) => {
                 if (args[0] === '.sleep') {
                     say('later');
                     bot.user.setStatus('dnd');
-                } else if (msg.content === '.update') {
+                } else if (args[0] === '.update') {
                     say('give me a sec..');
                     require('child_process').exec('git pull');
-                } else if (msg.content === '.devastate') {
+                } else if (args[0] === '.devastate') {
                     say('see ya');
                     setTimeout(function() {
                         process.exit();
