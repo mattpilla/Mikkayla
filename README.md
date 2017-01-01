@@ -16,3 +16,4 @@ Create `auth.json` in the root if you want to use this (for some ridiculous reas
 - `.razor`: Comes up with a Razor theory
 - `*mikkayla*`
 - `.roulette`: Play Russian roulette without the threat of actually dying
+- `.devastate`: Admin only- shuts down the bot
