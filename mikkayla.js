@@ -12,12 +12,18 @@ var tech = JSON.parse(fs.readFileSync('json/tech.json', 'utf8'));
 var gun = 0;
 
 bot.on('message', msg => {
+    if (msg.author.bot) {
+        return;
+    }
+
     function say(x) {
         msg.channel.sendMessage(x);
     }
 
     let args = msg.content.split(' ');
-    if (msg.content === 'hey') {
+    if (msg.content === '.info') {
+        msg.reply('https://github.com/mattpilla/Mikkayla');
+    } else if (msg.content === 'hey') {
         say('shut the fuck up');
     } else if (args[0] === '.zfg') {
         let index = +args[1] - 1;

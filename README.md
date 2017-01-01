@@ -9,7 +9,8 @@ Create `auth.json` in the root if you want to use this (for some ridiculous reas
 ```
 
 ## Commands
-`<>` indicates required parameters, `()` indicates optional, '*' indicates wildcard text
+`<>` indicates required parameters, `()` indicates optional, `*` indicates wildcard text
+- `.info`: Links to this repo
 - `hey`
 - `.zfg (line_number)`: Reads from a list of old ZFG quotes
 - `.razor`: Comes up with a Razor theory
