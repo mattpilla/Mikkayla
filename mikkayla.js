@@ -49,6 +49,8 @@ bot.on('message', msg => {
             gun--;
             say('u live.. for now :relieved: :ok_hand:');
         }
+    } else if (msg.content === '.update' && msg.author.id === '85521124766539776') {
+        require('child_process').exec('git pull');
     } else if (msg.content === '.devastate' && msg.author.id === '85521124766539776') {
         say('see ya');
         setTimeout(function() {
