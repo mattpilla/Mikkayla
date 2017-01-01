@@ -4,10 +4,11 @@ const auth = require('./auth.json');
 var bot = new Discord.Client();
 bot.login(auth.token);
 
-var zfgQuotes = JSON.parse(fs.readFileSync('json/zfgQuotes.json', 'utf8'));
-var mikkaylaLines = JSON.parse(fs.readFileSync('json/mikkaylaLines.json', 'utf8'));
-var items = JSON.parse(fs.readFileSync('json/item.json', 'utf8'));
-var tech = JSON.parse(fs.readFileSync('json/tech.json', 'utf8'));
+var config = getJSON('./conf.json');
+var zfgQuotes = getJSON('json/zfgQuotes.json');
+var mikkaylaLines = getJSON('json/mikkaylaLines.json', 'utf8');
+var items = getJSON('json/item.json', 'utf8');
+var tech = getJSON('json/tech.json', 'utf8');
 
 var gun = 0;
 
@@ -25,7 +26,7 @@ bot.on('message', (msg) => {
     // Get each word of command in an array
     let args = msg.content.split(' ');
     // Is sender admin?
-    let admin = (msg.author.id === '85521124766539776');
+    let admin = (config.admin.indexOf(msg.author.id) !== -1);
 
     // Ignore everything if sleeping
     if (bot.user.presence.status === 'dnd') {
@@ -95,7 +96,9 @@ bot.on('guildMemberRemove', (member) => {
 
 bot.on('ready', () => {
     console.log('lets do this shit');
-    bot.channels.get('264605971421200385').sendMessage('hiya :)');
+    for (var i = 0; i < config.home.length; i++) {
+        bot.channels.get(config.home[i]).sendMessage('hiya :)');
+    }
 });
 
 function randInt(max) {
@@ -104,4 +107,8 @@ function randInt(max) {
 
 function read(txt) {
     return txt[randInt(txt.length)];
+}
+
+function getJSON(path) {
+    return JSON.parse(fs.readFileSync(path, 'utf8'));
 }
