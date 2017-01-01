@@ -47,7 +47,7 @@ bot.on('message', msg => {
             say(msg.author + ' is dead :skull_crossbones:');
         } else {
             gun--;
-            say('u live.. for now :relieved: :ok_hand:');
+            say('u live.. for now :relieved:');
         }
     } else if (msg.content === '.update' && msg.author.id === '85521124766539776') {
         require('child_process').exec('git pull');
