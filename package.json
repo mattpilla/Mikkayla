@@ -1,0 +1,20 @@
+{
+    "name": "mikkayla",
+    "version": "1.0.0",
+    "description": "discord bot",
+    "main": "mikkayla.js",
+    "dependencies": {
+        "discord.js": "^11.0.0"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mattpilla/Mikkayla.git"
+    },
+    "author": "Kaztalek",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mattpilla/Mikkayla/issues"
+    },
+    "homepage": "https://github.com/mattpilla/Mikkayla#readme"
+}
