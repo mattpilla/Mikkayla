@@ -1,10 +1,11 @@
 # Mikkayla
 Made with [discord.js](https://discord.js.org/)
 
-Create `auth.json` in the root if you want to use this (for some ridiculous reason)
+Create `auth.json` in the root with at least the `token` field if you want to use this (for some ridiculous reason)
 ```json
 {
-    "token": "<your bot's connection token>"
+    "token": "<your bot's connection token>",
+    "youtube": "<(optional) personal YouTube API key>"
 }
 ```
 

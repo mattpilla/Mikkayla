@@ -1,6 +1,8 @@
 var Discord = require("discord.js");
 const fs = require('fs');
 const auth = require('./auth.json');
+var request = require('request');
+
 var bot = new Discord.Client();
 bot.login(auth.token);
 
@@ -23,8 +25,10 @@ bot.on('message', (msg) => {
         msg.channel.sendMessage(x);
     }
 
+    // Get the user's message
+    let txt = msg.content;
     // Get each word of command in an array
-    let args = msg.content.split(' ');
+    let args = txt.split(' ');
     // Is sender admin?
     let admin = (config.admin.indexOf(msg.author.id) !== -1);
 
@@ -37,9 +41,9 @@ bot.on('message', (msg) => {
             }
         }
     } else {
-        if (msg.content === '.info') {
+        if (txt === '.info') {
             msg.reply('https://github.com/mattpilla/Mikkayla');
-        } else if (msg.content === 'hey') {
+        } else if (txt === 'hey') {
             say('shut the fuck up');
         } else if (args[0] === '.zfg') {
             let index = +args[1] - 1;
@@ -51,9 +55,9 @@ bot.on('message', (msg) => {
         } else if (args[0] == '.razor') {
             let razorOpts = ['skip ', '', 'early '];
             say('You might be able to get ' + read(items) + ' ' + read(razorOpts) + 'with ' + read(tech) + '.');
-        } else if (msg.content.toLowerCase().includes('mikkayla')) {
+        } else if (txt.toLowerCase().includes('mikkayla')) {
             say(read(mikkaylaLines));
-        } else if (msg.content === '.roulette') {
+        } else if (txt === '.roulette') {
             if (!gun) {
                 gun = 6;
             }
@@ -67,9 +71,34 @@ bot.on('message', (msg) => {
             }
         }
         /***
+         * YouTube Shit
+         ***/
+        else if (auth.youtube && txt.toLowerCase().includes('youtu')) {
+            let vidId = /(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w-_]+)/.exec(txt);
+            if (vidId && vidId.length > 1) {
+                // If a youtube video is posted, get JSON details from it
+                requestJSON(
+                    'https:\/\/www.googleapis.com/youtube/v3/videos?id='
+                    + vidId
+                    + '&key='
+                    + auth.youtube
+                    + '&part=snippet,status',
+                    function (json) {
+                        if (json.items.length) {
+                            let vidDetails = json.items[0];
+                            // Check for unlisted videos
+                            if (vidDetails.status.privacyStatus === 'unlisted') {
+                                say('`' + vidDetails.snippet.title + '` is unlisted!');
+                            }
+                        }
+                    }
+                );
+            }
+        }
+        /***
          * Admin Shit
          ***/
-        else if (admin && msg.content.charAt(0) === '.') {
+        else if (admin && txt.charAt(0) === '.') {
             // All commands take an optional parameter to mention the bot
             if (!args[1] || args[1].includes(bot.user.id)) {
                 if (args[0] === '.sleep') {
@@ -111,4 +140,14 @@ function read(txt) {
 
 function getJSON(path) {
     return JSON.parse(fs.readFileSync(path, 'utf8'));
+}
+
+function requestJSON(url, success, failure) {
+    request(url, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            return success(JSON.parse(body));
+        } else {
+            return failure(error);
+        }
+    });
 }
