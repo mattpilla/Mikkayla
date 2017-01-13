@@ -106,7 +106,7 @@ bot.on('message', (msg) => {
                     bot.user.setStatus('dnd');
                 } else if (args[0] === '.update') {
                     say('give me a sec..');
-                    require('child_process').exec('git pull');
+                    require('child_process').exec('npm install && git pull');
                 } else if (args[0] === '.devastate') {
                     say('see ya');
                     setTimeout(function() {

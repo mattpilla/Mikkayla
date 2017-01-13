@@ -17,6 +17,7 @@ Create `auth.json` in the root with at least the `token` field if you want to us
 - `.razor`: Comes up with a Razor theory
 - `*mikkayla*`
 - `.roulette`: Play Russian roulette without the threat of actually dying
+- `*<youtube link>*: Checks if the video is unlisted
 
 ### Admin Only
 - `.sleep (@bot)`: Sets bot to DND; ignores everything until woken
