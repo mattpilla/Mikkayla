@@ -5,9 +5,17 @@ Create `auth.json` in the root with at least the `token` field if you want to us
 ```json
 {
     "token": "<your bot's connection token>",
-    "youtube": "<(optional) personal YouTube API key>"
+    "comment": "everything below here is optional. obviously this line is too",
+    "youtube": "<personal YouTube API key>",
+    "mysql": {
+        "host": "<db host>",
+        "user": "<db user>",
+        "password": "<db password>",
+        "database": "<database>"
+    }
 }
 ```
+Also update `conf.json` to suit your needs
 
 ## Commands
 `()` indicates optional parameters, `*` indicates wildcard text, `@` indicates a mention
@@ -24,3 +32,7 @@ Create `auth.json` in the root with at least the `token` field if you want to us
 - `.wake (@bot)`: Sets bot to online
 - `.update (@bot)`: Pulls the latest code from the repo. Recommended to use with [nodemon](https://nodemon.io/) for the server to automatically restart
 - `.devastate (@bot)`: Shuts down the bot
+
+## Events
+- On initialize: Messages home channel(s) (determined in `conf.json`) `hiya :)`
+- On user leave server: Messages default channel of server

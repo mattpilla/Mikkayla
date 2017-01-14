@@ -2,18 +2,31 @@ var Discord = require("discord.js");
 const fs = require('fs');
 const auth = require('./auth.json');
 var request = require('request');
+var mysql = require('mysql');
 
+// Start bot
 var bot = new Discord.Client();
 bot.login(auth.token);
 
+// Start MySQL
+var connection = null;
+if (auth.mysql) {
+    connection = mysql.createConnection(auth.mysql);
+}
+
+// Read all JSON in as objects
 var config = getJSON('./conf.json');
 var zfgQuotes = getJSON('json/zfgQuotes.json');
 var mikkaylaLines = getJSON('json/mikkaylaLines.json', 'utf8');
 var items = getJSON('json/item.json', 'utf8');
 var tech = getJSON('json/tech.json', 'utf8');
 
+// Bullets left in .roulette
 var gun = 0;
 
+/***
+ * Message read
+ ***/
 bot.on('message', (msg) => {
     // Ignore bot shit
     if (msg.author.bot) {
@@ -118,11 +131,17 @@ bot.on('message', (msg) => {
     }
 });
 
+/***
+ * Member left server
+ ***/
 bot.on('guildMemberRemove', (member) => {
     const guild = member.guild;
     guild.channels.get(guild.id).sendMessage('that fucker finally left');
 });
 
+/***
+ * Bot initialized
+ ***/
 bot.on('ready', () => {
     console.log('lets do this shit');
     for (var i = 0; i < config.home.length; i++) {
@@ -130,18 +149,22 @@ bot.on('ready', () => {
     }
 });
 
+// Get random integer from 0 to max-1 inclusive
 function randInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-function read(txt) {
-    return txt[randInt(txt.length)];
+// Return random line from a flat JSON
+function read(json) {
+    return json[randInt(json.length)];
 }
 
+// Read JSON file and return object
 function getJSON(path) {
     return JSON.parse(fs.readFileSync(path, 'utf8'));
 }
 
+// Get JSON object from url
 function requestJSON(url, success, failure) {
     request(url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
