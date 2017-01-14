@@ -34,5 +34,5 @@ Also update `conf.json` to suit your needs
 - `.devastate (@bot)`: Shuts down the bot
 
 ## Events
-- On initialize: Messages home channel(s) (determined in `conf.json`) `hiya :)`
-- On user leave server: Messages default channel of server
+- `On initialize`: Messages home channel(s) (determined in `conf.json`)
+- `On user leave server`: Messages default channel of server
