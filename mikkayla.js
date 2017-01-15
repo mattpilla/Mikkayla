@@ -109,21 +109,17 @@ bot.on('message', (msg) => {
                             d += capitalize(abilities[i].ability.name, true);
                         }
                         d += ']\n';
-                        let statMap = {
-                            'speed': 'Spe',
-                            'special-defense': 'SpD',
-                            'special-attack': 'SpA',
-                            'defense': 'Def',
-                            'attack': 'Atk',
-                            'hp': 'HP'
-                        };
+                        let statMap = {};
                         let stats = data.stats;
                         for (let i = 0; i < stats.length; i++) {
-                            if (i != 0) {
-                                d += ', ';
-                            }
-                            d += '***' + statMap[stats[i].stat.name] + '***: ' + stats[i].base_stat;
+                            statMap[stats[i].stat.name] = stats[i].base_stat;
                         }
+                        d += '***HP:*** ' + statMap.hp
+                            + ', ***Atk:*** ' + statMap.attack
+                            + ', ***Def:*** ' + statMap.defense
+                            + ', ***SpA:*** ' + statMap['special-attack']
+                            + ', ***SpD:*** ' + statMap['special-defense']
+                            + ', ***Spe:*** ' + statMap.speed;
                         say(d);
                         let spriteType = 'front_default';
                         if (args[2] && args[2].toLowerCase() === 'shiny' && data.sprites.front_shiny != null) {
