@@ -86,9 +86,9 @@ bot.on('message', (msg) => {
         /***
          * Pokemon Shit
          ***/
-        else if (args[0] === '.data' && args.length > 1) {
+        else if (args[0] === '.data' && typeof(args[1] === 'string')) {
             requestJSON(
-                'http://pokeapi.co/api/v2/pokemon/' + args[1],
+                'http://pokeapi.co/api/v2/pokemon/' + args[1].toLowerCase(),
                 function (data) {
                     if (data.name) {
                         let d = '__#' + data.id + '__  `'
