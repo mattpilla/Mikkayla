@@ -92,17 +92,17 @@ bot.on('message', (msg) => {
                 // If a youtube video is posted, get JSON details from it
                 requestJSON(
                     'https:\/\/www.googleapis.com/youtube/v3/videos?id='
-                    + vidId
+                    + vidId[1]
                     + '&key='
                     + auth.youtube
                     + '&part=snippet,status',
                     function (json) {
                         if (json.items.length) {
-                            let vidDetails = json.items[0];
-                            // Check for unlisted videos
-                            if (vidDetails.status.privacyStatus === 'unlisted') {
-                                say('`' + vidDetails.snippet.title + '` is unlisted!');
-                            }
+                            addUnlisted(json.items[0], vidId, function (success, successMsg) {
+                                if (success) {
+                                    say(successMsg);
+                                }
+                            });
                         }
                     }
                 );
@@ -173,4 +173,45 @@ function requestJSON(url, success, failure) {
             return failure(error);
         }
     });
+}
+
+// Add unlisted video to database
+function addUnlisted(vidDetails, vidId, callback) {
+    // Check for unlisted videos
+    if (vidDetails.status.privacyStatus === 'unlisted') {
+        // Add unlisted video to database
+        if (connection) {
+            connection.query(
+`CREATE TABLE IF NOT EXISTS unlisted (
+id VARCHAR(16) NOT NULL COLLATE 'utf8_unicode_ci',
+unlisted BIT(1) NOT NULL,
+PRIMARY KEY (id)
+)
+COMMENT='Unlisted YouTube videos'
+COLLATE='utf8_unicode_ci'
+ENGINE=InnoDB`
+            );
+            let videoId = mysql.escape(vidId[1]);
+            // Should we add vid to db?
+            connection.query(
+                'SELECT COUNT(id) AS solution FROM unlisted WHERE id = '
+                + videoId
+                + ';',
+                function (error, results, fields) {
+                    if (!results[0].solution) {
+                        // Add vid to db
+                        connection.query(
+                            'INSERT INTO unlisted (id, unlisted) VALUES ('
+                            + videoId
+                            + ', b\'1\');',
+                            function () {
+                                return callback(true, 'Adding unlisted video to database: `' + vidDetails.snippet.title + '`');
+                            }
+                        );
+                    }
+                }
+            );
+        }
+    }
+    return callback(false);
 }
