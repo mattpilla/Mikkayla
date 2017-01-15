@@ -125,7 +125,11 @@ bot.on('message', (msg) => {
                             d += '***' + statMap[stats[i].stat.name] + '***: ' + stats[i].base_stat;
                         }
                         say(d);
-                        msg.channel.sendFile(data.sprites.front_default);
+                        let spriteType = 'front_default';
+                        if (args[2] && args[2].toLowerCase() === 'shiny') {
+                            spriteType = 'front_shiny';
+                        }
+                        msg.channel.sendFile(data.sprites[spriteType]);
                     }
                 },
                 function () {

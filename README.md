@@ -25,7 +25,7 @@ Also update `conf.json` to suit your needs
 - `.razor`: Comes up with a Razor theory
 - `*mikkayla*`
 - `.roulette`: Play Russian roulette without the threat of actually dying
-- `.data <Pokemon name or number>`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
+- `.data <Pokemon name or number>` (shiny): Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
 - `*<youtube link>*`: Checks if the video is unlisted
 
 ### Admin Only
