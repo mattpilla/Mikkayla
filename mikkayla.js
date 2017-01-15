@@ -84,6 +84,56 @@ bot.on('message', (msg) => {
             }
         }
         /***
+         * Pokemon Shit
+         ***/
+        else if (args[0] === '.data' && args.length > 1) {
+            requestJSON(
+                'http://pokeapi.co/api/v2/pokemon/' + args[1],
+                function (data) {
+                    if (data.name) {
+                        let d = '__#' + data.id + '__  `'
+                            + capitalize(data.name, true) + '` (';
+                        let types = data.types;
+                        for (let i = 0; i < types.length; i++) {
+                            if (i != 0) {
+                                d += ', ';
+                            }
+                            d += capitalize(types[i].type.name, true);
+                        }
+                        d += ') [';
+                        let abilities = data.abilities;
+                        for (let i = 0; i < abilities.length; i++) {
+                            if (i != 0) {
+                                d += ', ';
+                            }
+                            d += capitalize(abilities[i].ability.name, true);
+                        }
+                        d += ']\n';
+                        let statMap = {
+                            'speed': 'Spe',
+                            'special-defense': 'SpD',
+                            'special-attack': 'SpA',
+                            'defense': 'Def',
+                            'attack': 'Atk',
+                            'hp': 'HP'
+                        };
+                        let stats = data.stats;
+                        for (let i = 0; i < stats.length; i++) {
+                            if (i != 0) {
+                                d += ', ';
+                            }
+                            d += '***' + statMap[stats[i].stat.name] + '***: ' + stats[i].base_stat;
+                        }
+                        say(d);
+                        msg.channel.sendFile(data.sprites.front_default);
+                    }
+                },
+                function () {
+                    say('No data for `' + args[1] + '`');
+                }
+            );
+        }
+        /***
          * YouTube Shit
          ***/
         else if (auth.youtube && txt.toLowerCase().includes('youtu')) {
@@ -154,6 +204,14 @@ function randInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+// Capitalize words, and optionally replace dashes with spaces
+function capitalize(str, noDash) {
+    if (noDash) {
+        str = str.replace(/-/g, ' ');
+    }
+    return str.replace(/\b\w/g, l => l.toUpperCase());
+}
+
 // Return random line from a flat JSON
 function read(json) {
     return json[randInt(json.length)];
@@ -169,7 +227,7 @@ function requestJSON(url, success, failure) {
     request(url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             return success(JSON.parse(body));
-        } else {
+        } else if (failure) {
             return failure(error);
         }
     });

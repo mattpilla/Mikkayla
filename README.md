@@ -18,13 +18,14 @@ Create `auth.json` in the root with at least the `token` field if you want to us
 Also update `conf.json` to suit your needs
 
 ## Commands
-`()` indicates optional parameters, `*` indicates wildcard text, `@` indicates a mention
+`<>` indicates required parameters, `()` indicates optional parameters, `*` indicates wildcard text, `@` indicates a mention
 - `.info`: Links to this repo
 - `hey`
 - `.zfg (line_number)`: Reads from a list of old ZFG quotes
 - `.razor`: Comes up with a Razor theory
 - `*mikkayla*`
 - `.roulette`: Play Russian roulette without the threat of actually dying
+- `.data <Pokemon name or number>`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
 - `*<youtube link>*`: Checks if the video is unlisted
 
 ### Admin Only
