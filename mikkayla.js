@@ -126,7 +126,7 @@ bot.on('message', (msg) => {
                         }
                         say(d);
                         let spriteType = 'front_default';
-                        if (args[2] && args[2].toLowerCase() === 'shiny') {
+                        if (args[2] && args[2].toLowerCase() === 'shiny' && data.sprites.front_shiny != null) {
                             spriteType = 'front_shiny';
                         }
                         msg.channel.sendFile(data.sprites[spriteType]);
