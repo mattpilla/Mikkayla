@@ -1,25 +1,19 @@
 var Discord = require("discord.js");
-const fs = require('fs');
-const auth = require('./auth.json');
-var request = require('request');
-var mysql = require('mysql');
+
+const helpers = require('./helpers.js');
+const pokemon = require('./js/pokemon.js');
+const youtube = require('./js/youtube.js');
 
 // Start bot
 var bot = new Discord.Client();
-bot.login(auth.token);
-
-// Start MySQL
-var connection = null;
-if (auth.mysql) {
-    connection = mysql.createConnection(auth.mysql);
-}
+bot.login(helpers.auth.token);
 
 // Read all JSON in as objects
-var config = getJSON('./conf.json');
-var zfgQuotes = getJSON('json/zfgQuotes.json');
-var mikkaylaLines = getJSON('json/mikkaylaLines.json', 'utf8');
-var items = getJSON('json/item.json', 'utf8');
-var tech = getJSON('json/tech.json', 'utf8');
+var config = helpers.getJSON('./conf.json');
+var zfgQuotes = helpers.getJSON('json/zfgQuotes.json');
+var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json', 'utf8');
+var items = helpers.getJSON('json/item.json', 'utf8');
+var tech = helpers.getJSON('json/tech.json', 'utf8');
 
 // Bullets left in .roulette
 var gun = 0;
@@ -61,21 +55,21 @@ bot.on('message', (msg) => {
         } else if (args[0] === '.zfg') {
             let index = +args[1] - 1;
             if (!Number.isInteger(+index) || index < 0 || index >= zfgQuotes.length) {
-                index = randInt(zfgQuotes.length);
+                index = helpers.randInt(zfgQuotes.length);
             }
             let display = index + 1;
             say('`' + display + ':` ' + zfgQuotes[index]);
         } else if (args[0] == '.razor') {
             let razorOpts = ['skip ', '', 'early '];
-            say('You might be able to get ' + read(items) + ' ' + read(razorOpts) + 'with ' + read(tech) + '.');
+            say('You might be able to get ' + helpers.read(items) + ' ' + helpers.read(razorOpts) + 'with ' + helpers.read(tech) + '.');
         } else if (txt.toLowerCase().includes('mikkayla')) {
-            say(read(mikkaylaLines));
+            say(helpers.read(mikkaylaLines));
         } else if (txt === '.roulette') {
             if (!gun) {
                 gun = 6;
             }
             say(':grimacing: :gun: ' + gun + ' bullets in the chamber...');
-            if (randInt(gun) + 1 == gun) {
+            if (helpers.randInt(gun) + 1 == gun) {
                 gun = 0;
                 say(msg.author + ' is dead :skull_crossbones:');
             } else {
@@ -87,76 +81,13 @@ bot.on('message', (msg) => {
          * Pokemon Shit
          ***/
         else if (args[0] === '.data' && typeof(args[1] === 'string')) {
-            requestJSON(
-                'http://pokeapi.co/api/v2/pokemon/' + args[1].toLowerCase(),
-                function (data) {
-                    if (data.name) {
-                        let d = '__#' + data.id + '__  `'
-                            + capitalize(data.name, true) + '` (';
-                        let types = data.types;
-                        for (let i = 0; i < types.length; i++) {
-                            if (i != 0) {
-                                d += ', ';
-                            }
-                            d += capitalize(types[i].type.name, true);
-                        }
-                        d += ') [';
-                        let abilities = data.abilities;
-                        for (let i = 0; i < abilities.length; i++) {
-                            if (i != 0) {
-                                d += ', ';
-                            }
-                            d += capitalize(abilities[i].ability.name, true);
-                        }
-                        d += ']\n';
-                        let statMap = {};
-                        let stats = data.stats;
-                        for (let i = 0; i < stats.length; i++) {
-                            statMap[stats[i].stat.name] = stats[i].base_stat;
-                        }
-                        d += '***HP:*** ' + statMap.hp
-                            + ', ***Atk:*** ' + statMap.attack
-                            + ', ***Def:*** ' + statMap.defense
-                            + ', ***SpA:*** ' + statMap['special-attack']
-                            + ', ***SpD:*** ' + statMap['special-defense']
-                            + ', ***Spe:*** ' + statMap.speed;
-                        say(d);
-                        let spriteType = 'front_default';
-                        if (args[2] && args[2].toLowerCase() === 'shiny' && data.sprites.front_shiny != null) {
-                            spriteType = 'front_shiny';
-                        }
-                        msg.channel.sendFile(data.sprites[spriteType]);
-                    }
-                },
-                function () {
-                    say('No data for `' + args[1] + '`');
-                }
-            );
+            pokemon.getData(msg.channel, args);
         }
         /***
          * YouTube Shit
          ***/
-        else if (auth.youtube && txt.toLowerCase().includes('youtu')) {
-            let vidId = /(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w-_]+)/.exec(txt);
-            if (vidId && vidId.length > 1) {
-                // If a youtube video is posted, get JSON details from it
-                requestJSON(
-                    'https:\/\/www.googleapis.com/youtube/v3/videos?id='
-                    + vidId[1]
-                    + '&key='
-                    + auth.youtube
-                    + '&part=snippet,status',
-                    function (json) {
-                        if (json.items.length) {
-                            addUnlisted(json.items[0], vidId, function (success, successMsg) {
-                                if (success) {
-                                    say(successMsg);
-                                }
-                            });
-                        }
-                    }
-                );
-            }
+        else if (helpers.auth.youtube && txt.toLowerCase().includes('youtu')) {
+            youtube.getVid(msg.channel, txt);
         }
         /***
          * Admin Shit
@@ -169,7 +100,7 @@ bot.on('message', (msg) => {
                     bot.user.setStatus('dnd');
                 } else if (args[0] === '.update') {
                     say('give me a sec..');
-                    require('child_process').exec('npm install && git pull');
+                    require('child_process').exec('git pull && npm install');
                 } else if (args[0] === '.devastate') {
                     say('see ya');
                     setTimeout(function() {
@@ -198,78 +129,3 @@ bot.on('ready', () => {
         bot.channels.get(config.home[i]).sendMessage('hiya :)');
     }
 });
-
-// Get random integer from 0 to max-1 inclusive
-function randInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-// Capitalize words, and optionally replace dashes with spaces
-function capitalize(str, noDash) {
-    if (noDash) {
-        str = str.replace(/-/g, ' ');
-    }
-    return str.replace(/\b\w/g, l => l.toUpperCase());
-}
-
-// Return random line from a flat JSON
-function read(json) {
-    return json[randInt(json.length)];
-}
-
-// Read JSON file and return object
-function getJSON(path) {
-    return JSON.parse(fs.readFileSync(path, 'utf8'));
-}
-
-// Get JSON object from url
-function requestJSON(url, success, failure) {
-    request(url, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            return success(JSON.parse(body));
-        } else if (failure) {
-            return failure(error);
-        }
-    });
-}
-
-// Add unlisted video to database
-function addUnlisted(vidDetails, vidId, callback) {
-    // Check for unlisted videos
-    if (vidDetails.status.privacyStatus === 'unlisted') {
-        // Add unlisted video to database
-        if (connection) {
-            connection.query(
-`CREATE TABLE IF NOT EXISTS unlisted (
-id VARCHAR(16) NOT NULL COLLATE 'utf8_unicode_ci',
-unlisted BIT(1) NOT NULL,
-PRIMARY KEY (id)
-)
-COMMENT='Unlisted YouTube videos'
-COLLATE='utf8_unicode_ci'
-ENGINE=InnoDB`
-            );
-            let videoId = mysql.escape(vidId[1]);
-            // Should we add vid to db?
-            connection.query(
-                'SELECT COUNT(id) AS solution FROM unlisted WHERE id = '
-                + videoId
-                + ';',
-                function (error, results, fields) {
-                    if (!results[0].solution) {
-                        // Add vid to db
-                        connection.query(
-                            'INSERT INTO unlisted (id, unlisted) VALUES ('
-                            + videoId
-                            + ', b\'1\');',
-                            function () {
-                                return callback(true, 'Adding unlisted video to database: `' + vidDetails.snippet.title + '`');
-                            }
-                        );
-                    }
-                }
-            );
-        }
-    }
-    return callback(false);
-}
