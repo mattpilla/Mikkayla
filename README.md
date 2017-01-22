@@ -21,6 +21,8 @@ Also update `conf.json` to suit your needs
 `<>` indicates required parameters, `()` indicates optional parameters, `*` indicates wildcard text, `@` indicates a mention
 - `.info`: Links to this repo
 - `hey`
+- `.colbol`: I chose this command because Colbol is greatly underrepresented in terms of content
+- `.pannenkoek`: Motivational poster
 - `.zfg (line_number)`: Reads from a list of old ZFG quotes
 - `.razor`: Comes up with a Razor theory
 - `*mikkayla*`

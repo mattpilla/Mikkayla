@@ -52,6 +52,10 @@ bot.on('message', (msg) => {
             msg.reply('https://github.com/mattpilla/Mikkayla');
         } else if (txt === 'hey') {
             say('shut the fuck up');
+        } else if (txt === '.colbol') {
+            msg.channel.sendFile('images/colbol.JPG');
+        } else if (txt === '.pannenkoek') {
+            msg.channel.sendFile('images/pannenkoek.png');
         } else if (args[0] === '.zfg') {
             let index = +args[1] - 1;
             if (!Number.isInteger(+index) || index < 0 || index >= zfgQuotes.length) {
