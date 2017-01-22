@@ -11,7 +11,7 @@ if (helpers.auth.twitter) {
 function listen(channels, hashtags) {
     if (twitApi) {
         // Get tweets from stream
-        twitApi.stream('statuses/filter', {track: hashtags}, function (stream) {
+        twitApi.stream('statuses/filter', {track: hashtags + ' -filter:retweets'}, function (stream) {
             stream.on('data', function (event) {
                 if (!event.retweet_count && !event.favorite_count) {
                     let tags = event.entities.hashtags;
