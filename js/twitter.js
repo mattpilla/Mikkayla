@@ -13,7 +13,7 @@ function listen(channels, hashtags) {
         // Get tweets from stream
         twitApi.stream('statuses/filter', {track: hashtags}, function (stream) {
             stream.on('data', function (event) {
-                if (!event.favorited && !event.retweeted) {
+                if (!event.retweet_count && !event.favorite_count) {
                     let tags = event.entities.hashtags;
                     for (var i = 0; i < tags.length; i++) {
                         let tag = '#' + tags[i].text;
