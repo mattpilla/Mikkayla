@@ -1,8 +1,9 @@
-var Discord = require("discord.js");
+var Discord = require('discord.js');
 
 const helpers = require('./helpers.js');
 const pokemon = require('./js/pokemon.js');
 const youtube = require('./js/youtube.js');
+const twitter = require('./js/twitter.js');
 
 // Start bot
 var bot = new Discord.Client();
@@ -48,6 +49,9 @@ bot.on('message', (msg) => {
             }
         }
     } else {
+        if (txt.toLowerCase().includes('mikkayla')) {
+            say(helpers.read(mikkaylaLines));
+        }
         if (txt === '.info') {
             msg.reply('https://github.com/mattpilla/Mikkayla');
         } else if (txt === 'hey') {
@@ -66,8 +70,6 @@ bot.on('message', (msg) => {
         } else if (args[0] == '.razor') {
             let razorOpts = ['skip ', '', 'early '];
             say('You might be able to get ' + helpers.read(items) + ' ' + helpers.read(razorOpts) + 'with ' + helpers.read(tech) + '.');
-        } else if (txt.toLowerCase().includes('mikkayla')) {
-            say(helpers.read(mikkaylaLines));
         } else if (txt === '.roulette') {
             if (!gun) {
                 gun = 6;
@@ -97,7 +99,7 @@ bot.on('message', (msg) => {
          * Admin Shit
          ***/
         else if (admin && txt.charAt(0) === '.') {
-            // All commands take an optional parameter to mention the bot
+            // All commands take a parameter to mention the bot
             if (!args[1] || args[1].includes(bot.user.id)) {
                 if (args[0] === '.sleep') {
                     say('later');
@@ -110,18 +112,15 @@ bot.on('message', (msg) => {
                     setTimeout(function() {
                         process.exit();
                     }, 1000);
+                } else if (args[0] === '.tweet' && args.length > 2) {
+                    let status = /> (.+)$/.exec(txt);
+                    if (status && status.length > 1) {
+                        twitter.tweet(msg.channel, status[1]);
+                    }
                 }
             }
         }
     }
-});
-
-/***
- * Member left server
- ***/
-bot.on('guildMemberRemove', (member) => {
-    const guild = member.guild;
-    guild.channels.get(guild.id).sendMessage('that fucker finally left');
 });
 
 /***

@@ -6,7 +6,8 @@
   "dependencies": {
     "discord.js": "^11.0.0",
     "mysql": "^2.12.0",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "twitter": "^1.7.0"
   },
   "devDependencies": {},
   "repository": {
