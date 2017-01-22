@@ -2,6 +2,7 @@ const fs = require('fs');
 const request = require('request');
 const mysql = require('mysql');
 const auth = require('./auth.json');
+const config = require('./conf.json');
 
 // Start MySQL
 var connection = null;
@@ -15,6 +16,7 @@ var randInt = (max) => {
 
 module.exports = {
     auth: auth,
+    config: config,
     connection: connection,
     mysql: mysql,
     // Get random integer from 0 to max-1 inclusive

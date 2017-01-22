@@ -10,7 +10,6 @@ var bot = new Discord.Client();
 bot.login(helpers.auth.token);
 
 // Read all JSON in as objects
-var config = helpers.getJSON('./conf.json');
 var zfgQuotes = helpers.getJSON('json/zfgQuotes.json');
 var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json', 'utf8');
 var items = helpers.getJSON('json/item.json', 'utf8');
@@ -38,7 +37,7 @@ bot.on('message', (msg) => {
     // Get each word of command in an array
     let args = txt.split(' ');
     // Is sender admin?
-    let admin = (config.admin.indexOf(msg.author.id) !== -1);
+    let admin = (helpers.config.admin.indexOf(msg.author.id) !== -1);
 
     // Ignore everything if sleeping
     if (bot.user.presence.status === 'dnd') {
@@ -128,7 +127,8 @@ bot.on('message', (msg) => {
  ***/
 bot.on('ready', () => {
     console.log('lets do this shit');
-    for (var i = 0; i < config.home.length; i++) {
-        bot.channels.get(config.home[i]).sendMessage('hiya :)');
+    for (var i = 0; i < helpers.config.home.length; i++) {
+        bot.channels.get(helpers.config.home[i]).sendMessage('hiya :)');
     }
+    twitter.listen(bot.channels, '#zsroot, #zsrmm, #zsrtww, #zsrtp, #zsrss, #zsrbotw');
 });
