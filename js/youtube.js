@@ -34,6 +34,7 @@ function addUnlisted(vidDetails, vidId, callback) {
 `CREATE TABLE IF NOT EXISTS unlisted (
 id VARCHAR(16) NOT NULL COLLATE 'utf8_unicode_ci',
 unlisted BIT(1) NOT NULL,
+author VARCHAR(50) NULL,
 PRIMARY KEY (id)
 )
 COMMENT='Unlisted YouTube videos'
@@ -50,9 +51,11 @@ ENGINE=InnoDB`
                     if (!results[0].solution) {
                         // Add vid to db
                         connection.query(
-                            'INSERT INTO unlisted (id, unlisted) VALUES ('
+                            'INSERT INTO unlisted (id, unlisted, author) VALUES ('
                             + videoId
-                            + ', b\'1\');',
+                            + ', b\'1\', '
+                            + helpers.mysql.escape(vidDetails.snippet.channelTitle)
+                            + ');',
                             function () {
                                 return callback(true, 'Adding unlisted video to database: `' + vidDetails.snippet.title + '`');
                             }
