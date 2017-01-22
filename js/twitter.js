@@ -24,7 +24,7 @@ function listen(channels, hashtags) {
                                 channel.sendMessage(
                                     '`New ' + tag + ' tweet by ' + user + '`: '
                                     + event.text + '\n'
-                                    + 'https://twitter.com/' + user + '/status/' + event.id_str
+                                    + '<https://twitter.com/' + user + '/status/' + event.id_str + '>'
                                 );
                             }
                         }
@@ -45,10 +45,11 @@ function tweet(channel, status) {
                 throw error;
             }
             channel.sendMessage(
-                'https://twitter.com/'
+                '<https://twitter.com/'
                 + tweet.user.screen_name
                 + '/status/'
                 + tweet.id_str
+                + '>'
             );
         });
     }
