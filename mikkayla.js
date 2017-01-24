@@ -125,7 +125,7 @@ bot.on('message', (msg) => {
 /***
  * Bot initialized
  ***/
-bot.on('ready', () => {
+bot.once('ready', () => {
     console.log('lets do this shit');
     for (var i = 0; i < helpers.config.home.length; i++) {
         bot.channels.get(helpers.config.home[i]).sendMessage('hiya :)');
