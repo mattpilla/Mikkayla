@@ -21,7 +21,7 @@ var gun = 0;
 /***
  * Message read
  ***/
-bot.on('message', (msg) => {
+bot.on('message', msg => {
     // Ignore bot shit
     if (msg.author.bot) {
         return;
@@ -131,4 +131,14 @@ bot.once('ready', () => {
         bot.channels.get(helpers.config.home[i]).sendMessage('hiya :)');
     }
     twitter.listen(bot.channels, '#zsroot, #zsrmm, #zsrtww, #zsrtp, #zsrss, #zsrbotw');
+});
+
+/***
+ * Prevent shit fuckery on crash
+ ***/
+process.on('uncaughtException', err => {
+    for (var i = 0; i < helpers.config.home.length; i++) {
+        bot.channels.get(helpers.config.home[i]).sendMessage('```markdown\n#' + err + '```');
+    }
+    console.log('well, fuck: ' + err);
 });
