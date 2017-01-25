@@ -130,7 +130,7 @@ bot.once('ready', () => {
     for (var i = 0; i < helpers.config.home.length; i++) {
         bot.channels.get(helpers.config.home[i]).sendMessage('hiya :)');
     }
-    twitter.listen(bot.channels, '#zsroot, #zsrmm, #zsrtww, #zsrtp, #zsrss, #zsrbotw');
+    twitter.listen(bot.channels);
 });
 
 /***

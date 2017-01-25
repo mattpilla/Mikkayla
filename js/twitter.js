@@ -8,8 +8,11 @@ if (helpers.auth.twitter) {
     twitApi = new Twitter(helpers.auth.twitter);
 }
 
-function listen(channels, hashtags) {
+function listen(channels) {
     if (twitApi) {
+        // Get zsr hashtags from config
+        let zsr = helpers.config.zsr;
+        let hashtags = Object.keys(zsr).join(', ');
         // Get tweets from stream
         twitApi.stream('statuses/filter', {track: hashtags}, function (stream) {
             stream.on('data', function (event) {
@@ -17,7 +20,7 @@ function listen(channels, hashtags) {
                     let tags = event.entities.hashtags;
                     for (var i = 0; i < tags.length; i++) {
                         let tag = '#' + tags[i].text;
-                        let tagChannels = helpers.config[tag];
+                        let tagChannels = zsr[tag];
                         if (tagChannels !== undefined) {
                             for (var j = 0; j < tagChannels.length; j++) {
                                 let user = event.user.screen_name;
