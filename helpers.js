@@ -7,7 +7,25 @@ const config = require('./conf.json');
 // Start MySQL
 var connection = null;
 if (auth.mysql) {
+    mysqlConnect();
+}
+
+function mysqlConnect() {
     connection = mysql.createConnection(auth.mysql);
+
+    connection.connect(function (err) {
+        if (err) {
+            console.log('Error connecting to db: ', err);
+            setTimeout(mysqlConnect, 2000);
+        }
+    });
+
+    connection.on('error', function (err) {
+        console.log('db error: ', err);
+        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+            mysqlConnect();
+        }
+    });
 }
 
 var randInt = (max) => {
