@@ -46,3 +46,7 @@ Also update `conf.json` to suit your needs
 ## Events
 - `On initialize`: Messages home channel(s) (determined in `conf.json`)
 - `On tweet with zsr hashtags`: Messages the corresponding channel in the [Zelda Science Discord](https://discord.gg/pwsZ6eD) with the tweet
+
+## Terminal
+Extras with the terminal in which you run `mikkayla.js`
+- `<channel id> <message>`: Send a message to the given channel as Mikkayla

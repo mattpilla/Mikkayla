@@ -9,6 +9,18 @@ const twitter = require('./js/twitter.js');
 var bot = new Discord.Client();
 bot.login(helpers.auth.token);
 
+// Take input from terminal
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin
+});
+rl.on('line', function (line) {
+    let txt = /^(\d+) (.+)$/.exec(line);
+    if (txt && txt.length > 2) {
+        bot.channels.get(txt[1]).sendMessage(txt[2]);
+    }
+});
+
 // Read all JSON in as objects
 var zfgQuotes = helpers.getJSON('json/zfgQuotes.json');
 var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json', 'utf8');
