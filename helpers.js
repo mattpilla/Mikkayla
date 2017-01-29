@@ -63,5 +63,11 @@ module.exports = {
                 return failure(error);
             }
         });
+    },
+    // Message home channels
+    msgHome: (channels, message) => {
+        for (var i = 0; i < config.home.length; i++) {
+            channels.get(config.home[i]).sendMessage(message);
+        }
     }
 }

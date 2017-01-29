@@ -139,9 +139,7 @@ bot.on('message', msg => {
  ***/
 bot.once('ready', () => {
     console.log('lets do this shit');
-    for (var i = 0; i < helpers.config.home.length; i++) {
-        bot.channels.get(helpers.config.home[i]).sendMessage('hiya :)');
-    }
+    helpers.msgHome(bot.channels, 'hiya :)');
     twitter.listen(bot.channels);
 });
 
@@ -149,8 +147,6 @@ bot.once('ready', () => {
  * Prevent shit fuckery on crash
  ***/
 process.on('uncaughtException', err => {
-    for (var i = 0; i < helpers.config.home.length; i++) {
-        bot.channels.get(helpers.config.home[i]).sendMessage('```markdown\n#' + err + '```');
-    }
+    helpers.msgHome(bot.channels, '```markdown\n#' + err + '```');
     console.log('well, fuck: ' + err);
 });
