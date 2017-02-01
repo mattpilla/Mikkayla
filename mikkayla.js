@@ -1,6 +1,7 @@
 var Discord = require('discord.js');
 
 const helpers = require('./helpers.js');
+const music = require('./js/music.js');
 const pokemon = require('./js/pokemon.js');
 const youtube = require('./js/youtube.js');
 const twitter = require('./js/twitter.js');
@@ -99,6 +100,12 @@ bot.on('message', msg => {
          ***/
         else if (args[0] === '.data' && typeof(args[1] === 'string')) {
             pokemon.getData(msg.channel, args);
+        }
+        /***
+         * Music Shit
+         ***/
+        else if (txt === '.join') {
+            music.join(msg);
         }
         /***
          * YouTube Shit
