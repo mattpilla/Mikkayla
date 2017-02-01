@@ -1,0 +1,31 @@
+{
+    "admin": [
+        "<IDs of admin users>"
+    ],
+    "home": [
+        "<IDs of home channels (for debugging)>"
+    ],
+    "zsr": {
+        "#zsroot": [
+            "<channel IDs; these zsr fields can be changed to whatever hashtags, so long as mikkayla.js is updated to reflect that>"
+        ],
+        "#zsrmm": [
+            ""
+        ],
+        "#zsrtww": [
+            ""
+        ],
+        "#zsrtp": [
+            ""
+        ],
+        "#zsrss": [
+            ""
+        ],
+        "#zsrbotw": [
+            ""
+        ],
+        "#zsrtest": [
+            ""
+        ]
+    }
+}

@@ -1,27 +1,8 @@
 # Mikkayla
 Made with [discord.js](https://discord.js.org/)
 
-Create `auth.json` in the root with at least the `token` field if you want to use this (for some ridiculous reason)
-```json
-{
-    "token": "<your bot's connection token>",
-    "comment": "everything below here is optional. obviously this line is too",
-    "youtube": "<personal YouTube API key>",
-    "mysql": {
-        "host": "<db host>",
-        "user": "<db user>",
-        "password": "<db password>",
-        "database": "<database>"
-    },
-    "twitter": {
-        "consumer_key": "<consumer key>",
-        "consumer_secret": "<consumer secret>",
-        "access_token_key": "<access key>",
-        "access_token_secret": "<access secret>"
-    }
-}
-```
-Also update `conf.json` to suit your needs
+Mikkayla is a very personalized bot specifically designed around my own use.
+With voice support, this project now runs best in a Linux environment, with dependencies like ffmpeg and g++. If for some ridiculous reason you want to use this, create `auth.json` and `conf.json` with the example files to guide you.
 
 ## Commands
 `<>` indicates required parameters, `()` indicates optional parameters, `*` indicates wildcard text, `@` indicates a mention

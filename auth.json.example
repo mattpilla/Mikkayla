@@ -1,0 +1,16 @@
+{
+    "token": "<bot token (required)>",
+    "youtube": "<youtube api key>",
+    "mysql": {
+        "host": "<db host>",
+        "user": "<db user>",
+        "password": "<db password>",
+        "database": "<db database>"
+    },
+    "twitter": {
+        "consumer_key": "<consumer key>",
+        "consumer_secret": "<consumer secret>",
+        "access_token_key": "<access key>",
+        "access_token_secret": "<access secret>"
+    }
+}
