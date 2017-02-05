@@ -15,8 +15,12 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `.razor`: Comes up with a Razor theory
 - `.roulette`: Play Russian roulette without the threat of actually dying
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
-- `.join`: Joins voice channel of user and says hello
 - `*<youtube link>*`: Checks if the video is unlisted
+
+### Music Stuff
+Audio files aren't tracked in this repo, so they'll have to be synced manually
+- `!join`: Joins voice channel of user and says hello
+- `!ok`: Plays DK64 'OK' clip
 
 ### Admin Only
 - `.sleep (@bot)`: Sets bot to DND; ignores everything until woken
