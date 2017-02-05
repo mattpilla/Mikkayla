@@ -104,8 +104,8 @@ bot.on('message', msg => {
         /***
          * Music Shit
          ***/
-        else if (txt === '.join') {
-            music.join(msg);
+        else if (txt.charAt(0) === '!') {
+            music.exec(msg);
         }
         /***
          * YouTube Shit
