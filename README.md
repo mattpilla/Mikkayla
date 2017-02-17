@@ -21,11 +21,13 @@ With voice support, this project now runs best in a Linux environment, with depe
 Audio files aren't tracked in this repo, so they'll have to be synced manually
 - `!join`: Joins voice channel of user and says hello
 - `!ok`: Plays DK64 'OK' clip
+- `!lol`: Plays King Kutout Laugh
 
 ### Admin Only
 - `.sleep (@bot)`: Sets bot to DND; ignores everything until woken
 - `.wake (@bot)`: Sets bot to online
 - `.update (@bot)`: Pulls the latest code from the repo. Recommended to use with [nodemon](https://nodemon.io/) for the server to automatically restart
+- `.restart`: Restart bot
 - `.devastate (@bot)`: Shuts down the bot
 - `.tweet <@bot> <message>`: Tweets message with the account specified in `auth.json`
 

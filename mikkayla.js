@@ -125,6 +125,8 @@ bot.on('message', msg => {
                 } else if (args[0] === '.update') {
                     say('give me a sec..');
                     require('child_process').exec('git pull && npm install');
+                } else if (args[0] === '.restart') {
+                    require('child_process').exec('touch mikkayla.js');
                 } else if (args[0] === '.devastate') {
                     say('see ya');
                     setTimeout(function() {
