@@ -12,5 +12,6 @@
         "consumer_secret": "<consumer secret>",
         "access_token_key": "<access key>",
         "access_token_secret": "<access secret>"
-    }
+    },
+    "openweather": "<api key>"
 }

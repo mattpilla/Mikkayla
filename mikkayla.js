@@ -108,6 +108,31 @@ bot.on('message', msg => {
             music.exec(msg);
         }
         /***
+         * Weather Shit
+         ***/
+        else if (args[0] === '.weather' && helpers.auth.openweather) {
+            if (/^\d{5}$/.test(args[1])) {
+                helpers.requestJSON(
+                    'http://api.openweathermap.org/data/2.5/forecast?zip='
+                        + args[1]
+                        + '&appid='
+                        + helpers.auth.openweather,
+                    function (data) {
+                        if (data.cod === '200') {
+                            let temperature = Math.round(data.list[0].main.temp * 9 / 5 - 459.67);
+                            say('Weather for `' + args[1] + '` (*'
+                                + data.city.name + '*): **' + temperature + '°F**');
+                        }
+                        else {
+                            say('invalid zip..');
+                        }
+                    }
+                );
+            } else {
+                say('i need a US zip code..');
+            }
+        }
+        /***
          * YouTube Shit
          ***/
         else if (helpers.auth.youtube && txt.toLowerCase().includes('youtu')) {
