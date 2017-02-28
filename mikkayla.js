@@ -120,8 +120,8 @@ bot.on('message', msg => {
                     function (data) {
                         if (data.cod === '200') {
                             let temperature = Math.round(data.list[0].main.temp * 9 / 5 - 459.67);
-                            say('Weather for `' + args[1] + '` (*'
-                                + data.city.name + '*): **' + temperature + '°F**');
+                            say('weather for `' + args[1] + '` (*'
+                                + data.city.name + '*): **' + temperature + '°**F');
                         }
                         else {
                             say('invalid zip..');
