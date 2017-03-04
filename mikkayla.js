@@ -115,13 +115,13 @@ bot.on('message', msg => {
                 helpers.requestJSON(
                     'http://api.openweathermap.org/data/2.5/forecast?zip='
                         + args[1]
-                        + '&appid='
+                        + ',us&units=imperial&appid='
                         + helpers.auth.openweather,
                     function (data) {
                         if (data.cod === '200') {
-                            let temperature = Math.round(data.list[0].main.temp * 9 / 5 - 459.67);
+                            let datum = data.list[0];
                             say('weather for `' + args[1] + '` (*'
-                                + data.city.name + '*): **' + temperature + '°**F');
+                                + data.city.name + '*): **' + Math.round(datum.main.temp) + '°**F [humidity: **' + datum.main.humidity + '**%, wind: **' + datum.wind.speed + '**mph]');
                         }
                         else {
                             say('invalid zip..');
