@@ -121,7 +121,7 @@ bot.on('message', msg => {
                         if (data.cod === '200') {
                             let datum = data.list[0];
                             say('weather for `' + args[1] + '` (*'
-                                + data.city.name + '*): **' + Math.round(datum.main.temp) + '°**F [humidity: **' + datum.main.humidity + '**%, wind: **' + datum.wind.speed + '**mph]');
+                                + data.city.name + '*): **' + Math.round(datum.main.temp) + '°**F [humidity: **' + datum.main.humidity + '**%, wind: **' + Math.round(datum.wind.speed) + '**mph] *' + datum.weather[0].description + '*');
                         }
                         else {
                             say('invalid zip..');
