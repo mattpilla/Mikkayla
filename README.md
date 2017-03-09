@@ -16,6 +16,7 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `.roulette`: Play Russian roulette without the threat of actually dying
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
 - `.weather <zip code>`: Gives the approximate temperature for the US zip code
+- `.info <twitch name>`: Gives channel info for the given twitch user
 - `*<youtube link>*`: Checks if the video is unlisted
 
 ### Music Stuff

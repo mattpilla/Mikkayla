@@ -13,5 +13,6 @@
         "access_token_key": "<access key>",
         "access_token_secret": "<access secret>"
     },
+    "twitch": "<api key>",
     "openweather": "<api key>"
 }

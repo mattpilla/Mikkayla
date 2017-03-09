@@ -133,6 +133,37 @@ bot.on('message', msg => {
             }
         }
         /***
+         * Twitch Shit
+         ***/
+        else if (args[0] === '.info' && typeof(args[1] === 'string') && helpers.auth.twitch) {
+            helpers.requestJSON(
+                'https://api.twitch.tv/kraken/channels/'
+                + args[1]
+                + '?client_id='
+                + helpers.auth.twitch,
+                function (data) {
+                    if (data.error) {
+                        say('i dont have info on ' + args[1]);
+                    } else {
+                        say('`' + data.display_name + '` :bust_in_silhouette: '
+                            + data.followers + ' :eye: '
+                            + data.views + ' <'
+                            + data.url + '>\nlast live with *'
+                            + (data.status ? data.status : '<no title>')
+                            + '* in **'
+                            + (data.game ? data.game : '<no game>') + '**'
+                        );
+                        if (data.logo) {
+                            msg.channel.sendFile(data.logo);
+                        }
+                    }
+                },
+                function (err) {
+                    say('i dont have info on ' + args[1]);
+                }
+            );
+        }
+        /***
          * YouTube Shit
          ***/
         else if (helpers.auth.youtube && txt.toLowerCase().includes('youtu')) {
