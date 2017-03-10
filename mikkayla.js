@@ -108,6 +108,28 @@ bot.on('message', msg => {
             music.exec(msg);
         }
         /***
+         * Urban Dictionary Shit
+         ***/
+        else if (args[0] === '.define' && args.length > 1) {
+            let term = txt.substr(8);
+            helpers.requestJSON(
+                'http://api.urbandictionary.com/v0/define?term='
+                    + encodeURIComponent(term),
+                function (data) {
+                    if (data.list.length) {
+                        let result = data.list[0];
+                        say('**' + result.word + '**: ' + result.definition
+                            + '\n`' + result.example + '` \n:+1::skin-tone-5:'
+                            + result.thumbs_up + ' :-1::skin-tone-5:'
+                            + result.thumbs_down + ' <' + result.permalink + '>'
+                        );
+                    } else {
+                        say('no results for **' + term + '**');
+                    }
+                }
+            );
+        }
+        /***
          * Weather Shit
          ***/
         else if (args[0] === '.weather' && helpers.auth.openweather) {
