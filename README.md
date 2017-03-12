@@ -13,6 +13,7 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `.pannenkoek`: Motivational poster
 - `.zfg (line_number)`: Reads from a list of old ZFG quotes
 - `.razor`: Comes up with a Razor theory
+- `#<hex color>`: Gives color info
 - `.roulette`: Play Russian roulette without the threat of actually dying
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
 - `.define <search term>`: Gives top definition of term from Urban Dictionary

@@ -96,6 +96,20 @@ bot.on('message', msg => {
             }
         }
         /***
+         * Color Shit
+         ***/
+        else if (/^#[0-9a-fA-F]{6}$/.test(txt)) {
+            let color = txt.substr(1);
+            helpers.requestJSON(
+                'http://thecolorapi.com/id?hex=' + color,
+                function (data) {
+                    say('`' + data.hex.value + '` ' + data.rgb.value + '\n**'
+                        + data.name.value + '** `(' + (data.name.exact_match_name ? 'exact' : data.name.closest_named_hex) + ')`');
+                    msg.channel.sendFile(`https://dummyimage.com/40x40/${color}/${color}.jpg`);
+                }
+            );
+        }
+        /***
          * Pokemon Shit
          ***/
         else if (args[0] === '.data' && typeof(args[1] === 'string')) {
