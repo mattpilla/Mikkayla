@@ -103,9 +103,11 @@ bot.on('message', msg => {
             helpers.requestJSON(
                 'http://thecolorapi.com/id?hex=' + color,
                 function (data) {
-                    say('`' + data.hex.value + '` ' + data.rgb.value + '\n**'
-                        + data.name.value + '** `(' + (data.name.exact_match_name ? 'exact' : data.name.closest_named_hex) + ')`');
-                    msg.channel.sendFile(`https://dummyimage.com/40x40/${color}/${color}.jpg`);
+                    msg.channel.sendFile(
+                        `https://dummyimage.com/40x40/${color}/${color}.jpg`,
+                        color + '.jpg',
+                        '`' + data.hex.value + '` ' + data.rgb.value + '\n**' + data.name.value + '** `(' + (data.name.exact_match_name ? 'exact' : data.name.closest_named_hex) + ')`'
+                    );
                 }
             );
         }
