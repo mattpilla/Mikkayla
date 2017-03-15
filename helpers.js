@@ -64,6 +64,12 @@ module.exports = {
             }
         });
     },
+    // Save JSON back to file
+    saveJSON: (name, obj, callback) => {
+        fs.writeFile(`json/${name}.json`, JSON.stringify(obj), 'utf8', () => {
+            callback();
+        });
+    },
     // Message home channels
     msgHome: (channels, message) => {
         for (var i = 0; i < config.home.length; i++) {

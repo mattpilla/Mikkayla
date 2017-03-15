@@ -96,6 +96,13 @@ bot.on('message', msg => {
                     }
                     say(fullList);
                     break;
+                case 'add':
+                    let game = txt.substr(14);
+                    gamelist.push(game);
+                    helpers.saveJSON('gamelist', gamelist, () => {
+                        say(`game \`#${gameCount + 1}\` added: **${game}**`);
+                    });
+                    break;
                 case 'random':
                     index = helpers.randInt(gameCount);
                 default:
