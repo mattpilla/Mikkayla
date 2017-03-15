@@ -14,7 +14,7 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `.gg`: Game on.
 - `.zfg (line number)`: Reads from a list of old ZFG quotes
 - `.razor`: Comes up with a Razor theory
-- `.gamelist (game number | random)`: Gives a list of games to potentially play
+- `.gamelist (game number | random | add | remove)`: Gives a list of games to potentially play
 - `.roulette`: Play Russian roulette without the threat of actually dying
 - `#<hex color>`: Gives color info
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless

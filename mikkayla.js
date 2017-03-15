@@ -103,6 +103,16 @@ bot.on('message', msg => {
                         say(`game \`#${gameCount + 1}\` added: **${game}**`);
                     });
                     break;
+                case 'remove':
+                    let i = +args[2] - 1;
+                    if (Number.isInteger(i) && i >= 0 && i < gameCount) {
+                        let game = gamelist[i];
+                        gamelist.splice(i, 1);
+                        helpers.saveJSON('gamelist', gamelist, () => {
+                            say(`game \`#${i + 1}\` removed: **${game}**`);
+                        });
+                    }
+                    break;
                 case 'random':
                     index = helpers.randInt(gameCount);
                 default:
