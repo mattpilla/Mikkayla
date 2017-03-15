@@ -86,12 +86,23 @@ bot.on('message', msg => {
             let razorOpts = ['skip ', '', 'early '];
             say('You might be able to get ' + helpers.read(items) + ' ' + helpers.read(razorOpts) + 'with ' + helpers.read(tech) + '.');
         } else if (args[0] === '.gamelist') {
-            if (args.length < 2) {
-                let display = '```\n';
-                for (let i = 0; i < gamelist.length; i++) {
-                    display += (i + 1) + ': ' + gamelist[i] + '\n';
-                }
-                say(display + '```');
+            let index = +args[1] - 1;
+            let gameCount = gamelist.length;
+            switch (args[1]) {
+                case undefined:
+                    let fullList = '```\n';
+                    for (let i = 0; i < gameCount; i++) {
+                        fullList += (i + 1) + ': ' + gamelist[i] + '\n';
+                    }
+                    say(fullList + '```');
+                    break;
+                case 'random':
+                    index = helpers.randInt(gameCount);
+                default:
+                    if (Number.isInteger(index) && index >= 0 && index < gameCount) {
+                        say('`' + (index + 1) + ':` ' + gamelist[index]);
+                    }
+                    break;
             }
         } else if (txt === '.roulette') {
             if (!gun) {
