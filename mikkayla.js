@@ -24,6 +24,7 @@ rl.on('line', function (line) {
 
 // Read all JSON in as objects
 var zfgQuotes = helpers.getJSON('json/zfgQuotes.json');
+var gamelist = helpers.getJSON('json/gamelist.json');
 var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json', 'utf8');
 var items = helpers.getJSON('json/item.json', 'utf8');
 var tech = helpers.getJSON('json/tech.json', 'utf8');
@@ -81,9 +82,17 @@ bot.on('message', msg => {
             }
             let display = index + 1;
             say('`' + display + ':` ' + zfgQuotes[index]);
-        } else if (args[0] == '.razor') {
+        } else if (args[0] === '.razor') {
             let razorOpts = ['skip ', '', 'early '];
             say('You might be able to get ' + helpers.read(items) + ' ' + helpers.read(razorOpts) + 'with ' + helpers.read(tech) + '.');
+        } else if (args[0] === '.gamelist') {
+            if (args.length < 2) {
+                let display = '```\n';
+                for (let i = 0; i < gamelist.length; i++) {
+                    display += (i + 1) + ': ' + gamelist[i] + '\n';
+                }
+                say(display + '```');
+            }
         } else if (txt === '.roulette') {
             if (!gun) {
                 gun = 6;
@@ -220,7 +229,7 @@ bot.on('message', msg => {
                     bot.user.setStatus('dnd');
                 } else if (args[0] === '.update') {
                     say('give me a sec..');
-                    require('child_process').exec('git pull && npm install');
+                    require('child_process').exec('git pull');
                 } else if (args[0] === '.restart') {
                     require('child_process').exec('touch mikkayla.js');
                 } else if (args[0] === '.devastate') {

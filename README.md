@@ -12,10 +12,11 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `.colbol`: I chose this command because Colbol is greatly underrepresented in terms of content
 - `.pannenkoek`: Motivational poster
 - `.gg`: Game on.
-- `.zfg (line_number)`: Reads from a list of old ZFG quotes
+- `.zfg (line number)`: Reads from a list of old ZFG quotes
 - `.razor`: Comes up with a Razor theory
-- `#<hex color>`: Gives color info
+- `.gamelist`: Gives a list of games to potentially play
 - `.roulette`: Play Russian roulette without the threat of actually dying
+- `#<hex color>`: Gives color info
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
 - `.define <search term>`: Gives top definition of term from Urban Dictionary
 - `.weather <zip code>`: Gives the approximate temperature for the US zip code
@@ -32,7 +33,7 @@ Audio files aren't tracked in this repo, so they'll have to be synced manually
 - `.sleep (@bot)`: Sets bot to DND; ignores everything until woken
 - `.wake (@bot)`: Sets bot to online
 - `.update (@bot)`: Pulls the latest code from the repo. Recommended to use with [nodemon](https://nodemon.io/) for the server to automatically restart
-- `.restart`: Restart bot
+- `.restart (@bot)`: Restart bot
 - `.devastate (@bot)`: Shuts down the bot
 - `.tweet <@bot> <message>`: Tweets message with the account specified in `auth.json`
 
