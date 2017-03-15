@@ -72,6 +72,8 @@ bot.on('message', msg => {
             msg.channel.sendFile('images/colbol.JPG');
         } else if (txt === '.pannenkoek') {
             msg.channel.sendFile('images/pannenkoek.png');
+        } else if (txt === '.gg') {
+            msg.channel.sendFile('images/gg.png', 'gg.png', 'Ever plan on buying @SteelSeries gear? the code "goronguy10" will grant you a 10% discount! Game on.');
         } else if (args[0] === '.zfg') {
             let index = +args[1] - 1;
             if (!Number.isInteger(+index) || index < 0 || index >= zfgQuotes.length) {

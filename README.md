@@ -11,6 +11,7 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `hey`
 - `.colbol`: I chose this command because Colbol is greatly underrepresented in terms of content
 - `.pannenkoek`: Motivational poster
+- `.gg`: Game on.
 - `.zfg (line_number)`: Reads from a list of old ZFG quotes
 - `.razor`: Comes up with a Razor theory
 - `#<hex color>`: Gives color info
