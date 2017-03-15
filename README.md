@@ -5,16 +5,21 @@ Mikkayla is a very personalized bot specifically designed around my own use.
 With voice support, this project now runs best in a Linux environment, with dependencies like ffmpeg and g++. If for some ridiculous reason you want to use this, create `auth.json` and `conf.json` with the example files to guide you.
 
 ## Commands
-`<>` indicates required parameters, `()` indicates optional parameters, `*` indicates wildcard text, `@` indicates a mention, `|` indicates or
-- `*mikkayla*`
+`<>` indicates required parameters, `()` indicates optional parameters, `*` indicates wildcard text, `@` indicates a mention
+- `*mikkayla*`: friendly message
 - `.info`: Links to this repo
-- `hey`
+- `hey`: says hi
 - `.colbol`: I chose this command because Colbol is greatly underrepresented in terms of content
 - `.pannenkoek`: Motivational poster
 - `.gg`: Game on.
-- `.zfg (line number)`: Reads from a list of old ZFG quotes
+- `.zfg`: Random selection from a list of old ZFG quotes
+  - `.zfg (line number)`: Reads specific old ZFG quote
 - `.razor`: Comes up with a Razor theory
-- `.gamelist (game number | random | add | remove)`: Gives a list of games to potentially play
+- `.gamelist`: Gives a list of games to potentially play
+  - `.gamelist (add <game name>)`: Adds game to end of list
+  - `.gamelist (remove <number>)`: Removes specific game from list
+  - `.gamelist (random)`: Gives random game from list
+  - `.gamelist (number)`: Gives specific game from list
 - `.roulette`: Play Russian roulette without the threat of actually dying
 - `#<hex color>`: Gives color info
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
