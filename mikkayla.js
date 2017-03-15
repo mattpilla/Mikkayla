@@ -90,11 +90,11 @@ bot.on('message', msg => {
             let gameCount = gamelist.length;
             switch (args[1]) {
                 case undefined:
-                    let fullList = '```\n';
+                    let fullList = '';
                     for (let i = 0; i < gameCount; i++) {
-                        fullList += (i + 1) + ': ' + gamelist[i] + '\n';
+                        fullList += '`' + (i + 1) + ':` ' + gamelist[i] + '\n';
                     }
-                    say(fullList + '```');
+                    say(fullList);
                     break;
                 case 'random':
                     index = helpers.randInt(gameCount);
