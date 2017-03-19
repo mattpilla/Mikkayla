@@ -2,6 +2,7 @@ var Discord = require('discord.js');
 
 const helpers = require('./helpers.js');
 const music = require('./js/music.js');
+const speedrun = require('./js/speedrun.js');
 const pokemon = require('./js/pokemon.js');
 const youtube = require('./js/youtube.js');
 const twitter = require('./js/twitter.js');
@@ -133,6 +134,12 @@ bot.on('message', msg => {
                 gun--;
                 say('u live.. for now :relieved:');
             }
+        }
+        /***
+         * Speedrun Shit
+         ***/
+        else if (args[0] === '.wr' && args.length > 1) {
+            speedrun.getWR(msg.channel, args);
         }
         /***
          * Color Shit

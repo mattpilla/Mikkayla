@@ -21,6 +21,7 @@ With voice support, this project now runs best in a Linux environment, with depe
   - `.gamelist (random)`: Gives random game from list
   - `.gamelist (number)`: Gives specific game from list
 - `.roulette`: Play Russian roulette without the threat of actually dying
+- `.wr <game> (category)`: Gives world record for game and category from [speedrun.com API](https://github.com/speedruncom/api)
 - `#<hex color>`: Gives color info
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
 - `.define <search term>`: Gives top definition of term from Urban Dictionary
