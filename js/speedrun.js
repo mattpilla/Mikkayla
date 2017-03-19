@@ -47,7 +47,7 @@ function getWR(channel, args) {
                     }
                     let names = d.data.names;
                     let runner = names.international + (names.japanese ? ' (' + names.japanese + ')' : '');
-                    channel.sendMessage(`**${h}:${m}:${s}** by *${runner}* on *${run.date}*\n${run.weblink}`);
+                    channel.sendMessage(`**${h}:${m}:${s}** by *${runner}* on *${run.date}*\n${data.data.weblink}`);
                 }
             );
         },
