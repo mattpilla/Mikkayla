@@ -46,6 +46,7 @@ Audio files aren't tracked in this repo, so they'll have to be synced manually
 ## Events
 - `On initialize`: Messages home channel(s) (determined in `conf.json`)
 - `On tweet with zsr hashtags`: Messages the corresponding channel in the [Zelda Science Discord](https://discord.gg/pwsZ6eD) with the tweet
+- `On user join voice`: Plays their entrance theme, if they have one
 
 ## Terminal
 Extras with the terminal in which you run `mikkayla.js`

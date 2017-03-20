@@ -283,6 +283,15 @@ bot.on('message', msg => {
     }
 });
 
+bot.on('voiceStateUpdate', (old, current) => {
+    if (old.voiceChannelID !== current.voiceChannelID && current.voiceChannelID) {
+        let voice = bot.voiceConnections.array()[0];
+        if (voice && voice.channel.id === current.voiceChannelID) {
+            voice.playFile(`audio/themes/${current.user.id}.mp3`, {volume: helpers.config.volume});
+        }
+    }
+});
+
 /***
  * Bot initialized
  ***/
