@@ -28,5 +28,6 @@
             ""
         ]
     },
+    "voice": <ID of voice channel to join>",
     "volume": <0 to 1>
 }

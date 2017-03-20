@@ -299,6 +299,9 @@ bot.once('ready', () => {
     console.log('lets do this shit');
     helpers.msgHome(bot.channels, 'hiya :)');
     twitter.listen(bot.channels);
+    if (helpers.config.voice) {
+        bot.channels.get(helpers.config.voice).join();
+    }
 });
 
 /***
