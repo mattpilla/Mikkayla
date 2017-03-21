@@ -219,7 +219,7 @@ bot.on('message', msg => {
         /***
          * Twitch Shit
          ***/
-        else if (args[0] === '.info' && typeof(args[1] === 'string') && helpers.auth.twitch) {
+        else if (args[0] === '.twitch' && typeof(args[1] === 'string') && helpers.auth.twitch) {
             helpers.requestJSON(
                 'https://api.twitch.tv/kraken/channels/'
                 + args[1]
@@ -283,6 +283,9 @@ bot.on('message', msg => {
     }
 });
 
+/***
+ * Entrance themes
+ ***/
 bot.on('voiceStateUpdate', (old, current) => {
     if (old.voiceChannelID !== current.voiceChannelID && current.voiceChannelID) {
         let voice = bot.voiceConnections.array()[0];

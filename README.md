@@ -26,7 +26,7 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
 - `.define <search term>`: Gives top definition of term from Urban Dictionary
 - `.weather <zip code>`: Gives the approximate temperature for the US zip code
-- `.info <twitch name>`: Gives channel info for the given twitch user
+- `.twitch <twitch name>`: Gives channel info for the given twitch user
 - `*<youtube link>*`: Checks if the video is unlisted
 
 ### Music Stuff
