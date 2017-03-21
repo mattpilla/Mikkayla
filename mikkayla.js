@@ -266,7 +266,7 @@ bot.on('message', msg => {
                     say('give me a sec..');
                     require('child_process').exec('git pull');
                 } else if (args[0] === '.restart') {
-                    require('child_process').exec('touch mikkayla.js');
+                    require('child_process').exec(`touch ${__filename}`);
                 } else if (args[0] === '.devastate') {
                     say('see ya');
                     setTimeout(function() {
