@@ -34,6 +34,7 @@ Audio files aren't tracked in this repo, so they'll have to be synced manually
 - `!join`: Joins voice channel of user and says hello
 - `!ok`: Plays DK64 'OK' clip
 - `!lol`: Plays King Kutout Laugh
+- `!getout`: Plays DK64 'GET OUT' clip
 
 ### Admin Only
 - `.sleep (@bot)`: Sets bot to DND; ignores everything until woken
