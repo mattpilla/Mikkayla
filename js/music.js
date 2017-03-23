@@ -22,6 +22,12 @@ const commands = {
             return msg.reply('lol...');
         }
         msg.guild.voiceConnection.playFile('audio/kko.mp3', {volume: volume});
+    },
+    '!getout': (msg) => {
+        if (!msg.guild.voiceConnection) {
+            return msg.reply('please leave...');
+        }
+        msg.guild.voiceConnection.playFile('audio/getout.mp3', {volume: volume});
     }
 }
 
