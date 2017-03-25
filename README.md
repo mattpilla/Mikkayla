@@ -11,6 +11,7 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `hey`: says hi
 - `.colbol`: I chose this command because Colbol is greatly underrepresented in terms of content
 - `.pannenkoek`: Motivational poster
+- `.like`: Give that message a like!
 - `.gg`: Game on.
 - `.zfg`: Random selection from a list of old ZFG quotes
   - `.zfg (line number)`: Reads specific old ZFG quote
