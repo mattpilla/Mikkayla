@@ -74,8 +74,12 @@ bot.on('message', msg => {
             msg.channel.sendFile('images/colbol.JPG');
         } else if (txt === '.pannenkoek') {
             msg.channel.sendFile('images/pannenkoek.png');
-        } else if (txt === '.like') {
-            msg.channel.sendFile('images/rrlike.JPG');
+        } else if (args[0] === '.like') {
+            let chan = bot.channels.get(args[1]);
+            if (!chan) {
+                chan = msg.channel;
+            }
+            chan.sendFile('images/rrlike.JPG');
         } else if (txt === '.gg') {
             msg.channel.sendFile('images/gg.png', 'gg.png', 'Ever plan on buying @SteelSeries gear? the code "goronguy10" will grant you a 10% discount! Game on.');
         } else if (args[0] === '.zfg') {
