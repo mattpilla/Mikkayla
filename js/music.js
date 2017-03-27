@@ -12,10 +12,10 @@ const commands = {
         });
     },
     '!ok': (msg) => {
-        playClip(msg, 'ok...', 'audio/OK.mp3');
+        playClip(msg, 'ok...', 'OK.mp3');
     },
     '!lol': (msg) => {
-        playClip(msg, 'lol...', 'audio/kko.mp3');
+        playClip(msg, 'lol...', 'kko.mp3');
     },
     '!getout': (msg) => {
         playClip(msg, 'please leave...', 'getout.mp3');
@@ -29,7 +29,7 @@ function playClip(msg, failure, file) {
     if (!msg.guild.voiceConnection) {
         return msg.reply(failure);
     }
-    return msg.guild.voiceConnection.playFile('audio/' + file, {volume: volume});
+    msg.guild.voiceConnection.playFile('audio/' + file, {volume: volume});
 }
 
 function exec(msg) {
