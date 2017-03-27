@@ -297,7 +297,6 @@ bot.on('voiceStateUpdate', (old, current) => {
         let channels = bot.voiceConnections.array();
         for (let i = 0; i < channels.length; i++) {
             let voice = channels[i];
-            console.log(voice.channel.id);
             if (voice && voice.channel.id === current.voiceChannelID) {
                 voice.playFile(`audio/themes/${current.user.id}.mp3`, {volume: helpers.config.volume});
             }
@@ -312,8 +311,11 @@ bot.once('ready', () => {
     console.log('lets do this shit');
     helpers.msgHome(bot.channels, 'hiya :)');
     twitter.listen(bot.channels);
-    if (helpers.config.voice) {
-        bot.channels.get(helpers.config.voice).join();
+    let voiceChans = helpers.config.voice;
+    if (voiceChans) {
+        for (let i = 0; i < voiceChans.length; i++) {
+            bot.channels.get(voiceChans[i]).join();
+        }
     }
 });
 
