@@ -33,9 +33,10 @@ With voice support, this project now runs best in a Linux environment, with depe
 ### Music Stuff
 Audio files aren't tracked in this repo, so they'll have to be synced manually
 - `!join`: Joins voice channel of user and says hello
-- `!ok`: Plays DK64 'OK' clip
+- `!ok`: Plays DK64 "OK" clip
 - `!lol`: Plays King Kutout Laugh
-- `!getout`: Plays DK64 'GET OUT' clip
+- `!getout`: Plays DK64 "GET OUT" clip
+- `!welldone`: Plays DK64 "WELL DONE" clip
 
 ### Admin Only
 - `.sleep (@bot)`: Sets bot to DND; ignores everything until woken
