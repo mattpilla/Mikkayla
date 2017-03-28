@@ -15,7 +15,11 @@ const commands = {
         playClip(msg, 'ok...', 'OK.mp3');
     },
     '!lol': (msg) => {
-        playClip(msg, 'lol...', 'kko.mp3');
+        let file = 'duel.mp3';
+        if (helpers.randInt(75)) {
+            file = 'kko.mp3';
+        }
+        playClip(msg, 'lol...', file);
     },
     '!getout': (msg) => {
         playClip(msg, 'please leave...', 'getout.mp3');
