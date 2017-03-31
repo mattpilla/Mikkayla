@@ -17,6 +17,15 @@ function listen(channels) {
         twitApi.stream('statuses/filter', {track: hashtags}, function (stream) {
             stream.on('data', function (event) {
                 if (event.text != null && event.text.indexOf('RT ') !== 0 && !event.retweet_count && !event.favorite_count) {
+                    let userId = event.user.id_str;
+                    let blacklist = helpers.config.blacklist;
+                    // Ignore tweet if from blacklisted user
+                    for (let i = 0; i < blacklist.length; i++) {
+                        if (userId === blacklist[i].id) {
+                            helpers.msgHome(channels, 'blacklisted tweet');
+                            return;
+                        }
+                    }
                     let tags = event.entities.hashtags;
                     for (var i = 0; i < tags.length; i++) {
                         let tag = '#' + tags[i].text.toLowerCase();

@@ -28,8 +28,14 @@
             ""
         ]
     },
-    "voice": [
-        <IDs of voice channels to join>"
+    "blacklist": [
+        {
+            "name": "<name of twitter user to blacklist>",
+            "id": "<id of twitter user to blacklist"
+        }
     ],
-    "volume": <0 to 1>
+    "voice": [
+        "<IDs of voice channels to join>"
+    ],
+    "volume": "<0 to 1>"
 }
