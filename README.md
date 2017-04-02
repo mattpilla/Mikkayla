@@ -37,6 +37,7 @@ Audio files aren't tracked in this repo, so they'll have to be synced manually
 - `!lol`: Plays King Kutout Laugh
 - `!getout`: Plays DK64 "GET OUT" clip
 - `!welldone`: Plays DK64 "WELL DONE" clip
+- `!gay`: Play iDubbbz "I'm Gay" clip
 
 ### Admin Only
 - `.sleep (@bot)`: Sets bot to DND; ignores everything until woken
