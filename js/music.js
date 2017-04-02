@@ -26,6 +26,9 @@ const commands = {
     },
     '!welldone': (msg) => {
         playClip(msg, 'not well done...', 'welldone.mp3');
+    },
+    '!gay': (msg) => {
+        playClip(msg, 'gay...', 'imgay.mp3');
     }
 }
 
