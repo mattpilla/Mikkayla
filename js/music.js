@@ -31,7 +31,7 @@ const commands = {
         playClip(msg, 'gay...', 'imgay.mp3');
     },
     '!catchphrase': (msg) => {
-        playClip(msg, 'grass tastes bad...', 'wubba.mp3');
+        playClip(msg, 'grass tastes bad...', 'catchphrases/catch' + helpers.randInt(12) + '.mp3');
     }
 }
 
