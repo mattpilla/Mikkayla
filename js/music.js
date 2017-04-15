@@ -29,6 +29,9 @@ const commands = {
     },
     '!gay': (msg) => {
         playClip(msg, 'gay...', 'imgay.mp3');
+    },
+    '!catchphrase': (msg) => {
+        playClip(msg, 'grass tastes bad...', 'wubba.mp3');
     }
 }
 
