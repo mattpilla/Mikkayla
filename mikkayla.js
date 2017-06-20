@@ -292,14 +292,21 @@ bot.on('message', msg => {
 /***
  * Entrance themes
  ***/
+function playSound(sound, channelId) {
+    let channels = bot.voiceConnections.array();
+    for (let i = 0; i < channels.length; i++) {
+        let voice = channels[i];
+        if (voice && voice.channel.id === channelId) {
+            voice.playFile(sound, {volume: helpers.config.volume});
+        }
+    }
+}
 bot.on('voiceStateUpdate', (old, current) => {
-    if (old.voiceChannelID !== current.voiceChannelID && current.voiceChannelID) {
-        let channels = bot.voiceConnections.array();
-        for (let i = 0; i < channels.length; i++) {
-            let voice = channels[i];
-            if (voice && voice.channel.id === current.voiceChannelID) {
-                voice.playFile(`audio/themes/${current.user.id}.mp3`, {volume: helpers.config.volume});
-            }
+    if (old.voiceChannelID !== current.voiceChannelID) {
+        if (current.voiceChannelID) {
+            playSound(`audio/themes/${current.user.id}.mp3`, current.voiceChannelID);
+        } else {
+            playSound('audio/oak/oak0.mp3', old.voiceChannelID);
         }
     }
 });
