@@ -148,7 +148,8 @@ bot.on('message', msg => {
                 for (let i = 0; i < holidays.length - 2; i++) {
                     list += holidays[i].substr(1, holidays[i].length - 10) + '\n';
                 }
-                say(list + '```');
+                say('`' + today.toISOString().substr(0, 10) + '`\n'
+                    + list + '```');
             });
         }
         /***
