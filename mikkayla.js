@@ -140,15 +140,18 @@ bot.on('message', msg => {
                 gun--;
                 say('u live.. for now :relieved:');
             }
-        } else if (txt === '.holiday') {
-            let today = new Date();
+        } else if (args[0] === '.holiday') {
+            let today = new Date(args[1]);
+            if (isNaN(today.getTime())) {
+                today = new Date();
+            }
             require('request').get(`https://www.checkiday.com/${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`, (error, response, body) => {
                 let holidays = body.match(/>([^><]+)<\/a><\/h2>/gm);
                 let list = '```\n'
                 for (let i = 0; i < holidays.length - 2; i++) {
                     list += holidays[i].substr(1, holidays[i].length - 10) + '\n';
                 }
-                say('`' + today.toISOString().substr(0, 10) + '`\n'
+                say('`' + today.toString() + '`\n'
                     + list + '```');
             });
         }
