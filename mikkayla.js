@@ -146,11 +146,8 @@ bot.on('message', msg => {
                 today = new Date();
             }
             require('request').get(`https://www.checkiday.com/${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`, (error, response, body) => {
-                let holidays = body.match(/>([^><]+)<\/a><\/h2>/gm);
-                let list = '```\n'
-                for (let i = 0; i < holidays.length - 2; i++) {
-                    list += holidays[i].substr(1, holidays[i].length - 10) + '\n';
-                }
+                var list = '```\n';
+                body.replace(/>([^><]+)<\/a><\/h2><\/div><a/gm, (match, m1) => list += m1 + '\n');
                 say('`' + today.toString() + '`\n'
                     + list + '```');
             });
