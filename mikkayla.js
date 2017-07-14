@@ -70,6 +70,8 @@ bot.on('message', msg => {
             msg.reply('https://github.com/mattpilla/Mikkayla');
         } else if (txt === 'hey') {
             say('shut the fuck up');
+        } else if (args[0] === '.random' && Number.isInteger(+args[1]) && args[1] > 1) {
+            say(helpers.randInt(args[1]) + 1);
         } else if (txt === '.colbol') {
             msg.channel.sendFile('images/colbol.JPG');
         } else if (txt === '.pannenkoek') {
