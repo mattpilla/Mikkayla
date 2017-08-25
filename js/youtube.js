@@ -14,7 +14,7 @@ function getVid(channel, txt) {
                 if (json.items.length) {
                     addUnlisted(json.items[0], vidId, function (success, successMsg) {
                         if (success) {
-                            channel.sendMessage(successMsg);
+                            channel.send(successMsg);
                         }
                     });
                 }

@@ -19,7 +19,7 @@ const rl = readline.createInterface({
 rl.on('line', function (line) {
     let txt = /^(\d+) (.+)$/.exec(line);
     if (txt && txt.length > 2) {
-        bot.channels.get(txt[1]).sendMessage(txt[2]);
+        bot.channels.get(txt[1]).send(txt[2]);
     }
 });
 
@@ -44,7 +44,7 @@ bot.on('message', msg => {
 
     // Convenience function for sending messages
     function say(x) {
-        msg.channel.sendMessage(x);
+        msg.channel.send(x);
     }
 
     // Get the user's message
@@ -73,17 +73,17 @@ bot.on('message', msg => {
         } else if (args[0] === '.random' && Number.isInteger(+args[1]) && args[1] > 1) {
             say(helpers.randInt(args[1]) + 1);
         } else if (txt === '.colbol') {
-            msg.channel.sendFile('images/colbol.JPG');
+            msg.channel.send(options={files: ['images/colbol.JPG']});
         } else if (txt === '.pannenkoek') {
-            msg.channel.sendFile('images/pannenkoek.png');
+            msg.channel.send(options={files: ['images/pannenkoek.png']});
         } else if (args[0] === '.like') {
             let chan = bot.channels.get(args[1]);
             if (!chan) {
                 chan = msg.channel;
             }
-            chan.sendFile('images/rrlike.JPG');
+            chan.send(options={files: ['images/rrlike.JPG']});
         } else if (txt === '.gg') {
-            msg.channel.sendFile('images/gg.png', 'gg.png', 'Ever plan on buying @SteelSeries gear? the code "goronguy10" will grant you a 10% discount! Game on.');
+            msg.channel.send('Ever plan on buying @SteelSeries gear? the code "goronguy10" will grant you a 10% discount! Game on.', {files: ['images/gg.png']});
         } else if (args[0] === '.zfg') {
             let index = +args[1] - 1;
             if (!Number.isInteger(+index) || index < 0 || index >= zfgQuotes.length) {
@@ -168,10 +168,9 @@ bot.on('message', msg => {
             helpers.requestJSON(
                 'http://thecolorapi.com/id?hex=' + color,
                 function (data) {
-                    msg.channel.sendFile(
-                        `https://dummyimage.com/40x40/${color}/${color}.jpg`,
-                        color + '.jpg',
-                        '`' + data.hex.value + '` ' + data.rgb.value + '\n**' + data.name.value + '** `(' + (data.name.exact_match_name ? 'exact' : data.name.closest_named_hex) + ')`'
+                    msg.channel.send(
+                        '`' + data.hex.value + '` ' + data.rgb.value + '\n**' + data.name.value + '** `(' + (data.name.exact_match_name ? 'exact' : data.name.closest_named_hex) + ')`',
+                        {files: [`https://dummyimage.com/40x40/${color}/${color}.jpg`]}
                     );
                 }
             );
@@ -248,17 +247,16 @@ bot.on('message', msg => {
                     if (data.error) {
                         say('i dont have info on ' + args[1]);
                     } else {
-                        say('`' + data.display_name + '` :bust_in_silhouette: '
+                        let options = data.logo ? {files: [data.logo]} : null;
+                        msg.channel.send('`' + data.display_name + '` :bust_in_silhouette: '
                             + data.followers + ' :eye: '
                             + data.views + ' <'
                             + data.url + '>\nlast live with *'
                             + (data.status ? data.status : '<no title>')
                             + '* in **'
-                            + (data.game ? data.game : '<no game>') + '**'
+                            + (data.game ? data.game : '<no game>') + '**',
+                            options
                         );
-                        if (data.logo) {
-                            msg.channel.sendFile(data.logo);
-                        }
                     }
                 },
                 function (err) {

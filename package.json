@@ -10,7 +10,7 @@
     "node-opus": "^0.2.4",
     "request": "^2.79.0",
     "twitter": "^1.7.0",
-    "uws": "^0.12.0"
+    "uws": "^8.14.1"
   },
   "devDependencies": {},
   "repository": {

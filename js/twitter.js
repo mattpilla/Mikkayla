@@ -35,7 +35,7 @@ function listen(channels) {
                                 let user = event.user.screen_name;
                                 let channel = channels.get(tagChannels[j]);
                                 if (channel !== undefined) {
-                                    channel.sendMessage(
+                                    channel.send(
                                         '`New ' + tag + ' tweet by ' + user + '`: '
                                         + event.text + '\n'
                                         + '<https://twitter.com/' + user + '/status/' + event.id_str + '>'
@@ -59,7 +59,7 @@ function tweet(channel, status) {
             if (error) {
                 throw error;
             }
-            channel.sendMessage(
+            channel.send(
                 '<https://twitter.com/'
                 + tweet.user.screen_name
                 + '/status/'

@@ -47,12 +47,12 @@ function getWR(channel, args) {
                     }
                     let names = d.data.names;
                     let runner = names.international + (names.japanese ? ' (' + names.japanese + ')' : '');
-                    channel.sendMessage(`**${h}:${m}:${s}** by *${runner}* on *${run.date}*\n${data.data.weblink}`);
+                    channel.send(`**${h}:${m}:${s}** by *${runner}* on *${run.date}*\n${data.data.weblink}`);
                 }
             );
         },
         function (data) {
-            channel.sendMessage('.wr `game` `category`\n'
+            channel.send('.wr `game` `category`\n'
                 + '`game` and `category` use the (case-sensitive) abbreviations on https://speedrun.com');
         }
     );

@@ -34,16 +34,16 @@ function getData(channel, args) {
                     + ', ***SpA:*** ' + statMap['special-attack']
                     + ', ***SpD:*** ' + statMap['special-defense']
                     + ', ***Spe:*** ' + statMap.speed;
-                channel.sendMessage(d);
+                channel.send(d);
                 let spriteType = 'front_default';
                 if (args[2] && args[2].toLowerCase() === 'shiny') {
                     spriteType = 'front_shiny';
                 }
-                channel.sendFile(data.sprites[spriteType]);
+                channel.send(options={files: [data.sprites[spriteType]]});
             }
         },
         function () {
-            channel.sendMessage('No data for `' + args[1] + '`');
+            channel.send('No data for `' + args[1] + '`');
         }
     );
 }
