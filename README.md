@@ -23,6 +23,7 @@ With voice support, this project now runs best in a Linux environment, with depe
   - `.gamelist (random)`: Gives random game from list
   - `.gamelist (number)`: Gives specific game from list
 - `.roulette`: Play Russian roulette without the threat of actually dying
+- `.roster`: Gives the SSBM character list for easy copy/paste
 - `.holiday (date)`: Prints list of holidays for the day (in GMT)
 - `.wr <game> (category)`: Gives world record for game and category from [speedrun.com API](https://github.com/speedruncom/api)
 - `#<hex color>`: Gives color info
