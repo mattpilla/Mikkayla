@@ -142,6 +142,8 @@ bot.on('message', msg => {
                 gun--;
                 say('u live.. for now :relieved:');
             }
+        } else if (txt === '.roster') {
+            say('```Doc\nMario\nLuigi\nBowser\nPeach\nYoshi\nDK\nCaptain Falcon\nGanondorf\nFalco\nFox\nNess\nIce Climbers\nKirby\nSamus\nZelda\nSheik\nLink\nYoung Link\nPichu\nPikachu\nJigglypuff\nMewtwo\nG&W\nMarth\nRoy```');
         } else if (args[0] === '.holiday') {
             let today = new Date(args[1]);
             if (isNaN(today.getTime())) {
