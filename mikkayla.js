@@ -29,6 +29,7 @@ var gamelist = helpers.getJSON('json/gamelist.json');
 var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json', 'utf8');
 var items = helpers.getJSON('json/item.json', 'utf8');
 var tech = helpers.getJSON('json/tech.json', 'utf8');
+var holidays = helpers.getJSON('json/holidays.json', 'utf8');
 
 // Bullets left in .roulette
 var gun = 0;
@@ -149,12 +150,24 @@ bot.on('message', msg => {
             if (isNaN(today.getTime())) {
                 today = new Date();
             }
-            require('request').get(`https://www.checkiday.com/${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`, (error, response, body) => {
-                var list = '```\n';
-                body.replace(/>([^><]+)<\/a><\/h2><\/div><a/gm, (match, m1) => list += m1 + '\n');
-                say('`' + today.toString() + '`\n'
-                    + list + '```');
-            });
+            let dayString = today.toISOString().substr(0, 10);
+            var list = '```\n';
+            if (holidays[dayString] !== undefined) {
+                for (let i = 0; i < holidays[dayString].length; i++) {
+                    list += holidays[dayString][i] + '\n';
+                }
+                say('`' + dayString + '`\n' + list + '```');
+            } else {
+                require('request').get(`https://www.checkiday.com/${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`, (error, response, body) => {
+                    body.replace(/>([^><]+)<\/a><\/h2><\/div><a/gm, (match, m1) => {
+                        if (!m1.toLowerCase().startsWith('the start of')) {
+                            list += m1 + '\n'
+                        }
+                    });
+                    say('`' + today.toString() + '`\n'
+                        + list + '```');
+                });
+            }
         }
         /***
          * Speedrun Shit
