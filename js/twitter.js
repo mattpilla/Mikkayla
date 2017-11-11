@@ -1,11 +1,11 @@
-var Twitter = require('twitter');
+var Twit = require('twit');
 
 const helpers = require('../helpers.js');
 
 // Connect to Twitter
 var twitApi = null;
 if (helpers.auth.twitter) {
-    twitApi = new Twitter(helpers.auth.twitter);
+    twitApi = new Twit(helpers.auth.twitter);
 }
 
 function listen(channels) {
@@ -14,41 +14,35 @@ function listen(channels) {
         let zsr = helpers.config.zsr;
         let hashtags = Object.keys(zsr).join(', ');
         // Get tweets from stream
-        twitApi.stream('statuses/filter', {track: hashtags}, function (stream) {
-            stream.on('data', function (event) {
-                if (event.text != null && event.text.indexOf('RT ') !== 0 && !event.retweet_count && !event.favorite_count) {
-                    let userId = event.user.id_str;
-                    let blacklist = helpers.config.blacklist;
-                    // Ignore tweet if from blacklisted user
-                    for (let i = 0; i < blacklist.length; i++) {
-                        if (userId === blacklist[i].id) {
-                            helpers.msgHome(channels, 'blacklisted tweet');
-                            return;
-                        }
+        var stream = twitApi.stream('statuses/filter', {track: hashtags});
+        stream.on('tweet', tweet => {
+            if (tweet.text != null && tweet.text.indexOf('RT ') !== 0 && !tweet.retweet_count && !tweet.favorite_count) {
+                let userId = tweet.user.id_str;
+                let blacklist = helpers.config.blacklist;
+                // Ignore tweet if from blacklisted user
+                for (let i = 0; i < blacklist.length; i++) {
+                    if (userId === blacklist[i].id) {
+                        helpers.msgHome(channels, 'blacklisted tweet');
+                        return;
                     }
-                    let tags = event.entities.hashtags;
-                    for (var i = 0; i < tags.length; i++) {
-                        let tag = '#' + tags[i].text.toLowerCase();
-                        let tagChannels = zsr[tag];
-                        if (tagChannels !== undefined) {
-                            for (var j = 0; j < tagChannels.length; j++) {
-                                let user = event.user.screen_name;
-                                let channel = channels.get(tagChannels[j]);
-                                if (channel !== undefined) {
-                                    channel.send(
-                                        '`New ' + tag + ' tweet by ' + user + '`: '
-                                        + event.text + '\n'
-                                        + '<https://twitter.com/' + user + '/status/' + event.id_str + '>'
-                                    );
-                                }
+                }
+                let tags = tweet.entities.hashtags;
+                for (let i = 0; i < tags.length; i++) {
+                    let tag = '#' + tags[i].text.toLowerCase();
+                    let tagChannels = zsr[tag];
+                    if (tagChannels !== undefined) {
+                        for (let j = 0; j < tagChannels.length; j++) {
+                            let user = tweet.user.screen_name;
+                            let channel = channels.get(tagChannels[j]);
+                            if (channel !== undefined) {
+                                channel.send(
+                                    `\`New ${tag} tweet by ${user}\`: ${tweet.text}\n<https://twitter.com/${user}/status/${tweet.id_str}>`
+                                );
                             }
                         }
                     }
                 }
-            });
-            stream.on('error', function (error) {
-                throw error;
-            });
+            }
         });
     }
 }

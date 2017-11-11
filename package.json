@@ -9,7 +9,7 @@
     "mysql": "^2.12.0",
     "node-opus": "^0.2.4",
     "request": "^2.79.0",
-    "twitter": "^1.7.0",
+    "twit": "^2.2.9",
     "uws": "^8.14.1"
   },
   "devDependencies": {},
