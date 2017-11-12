@@ -20,7 +20,7 @@ function listen(channels) {
         let d = new Date();
         d.setDate(d.getDate() - 1);
         let yesterday = d.toISOString().substr(0, 10);
-        twitApi.get('search/tweets', {q: `${Object.keys(zsr).join(' OR ')} since:${yesterday}`}, (error, data, response) => {
+        twitApi.get('search/tweets', {q: `${Object.keys(zsr).join(' OR ')} since:${yesterday}`, tweet_mode: 'extended'}, (error, data, response) => {
             if (error) {
                 throw error;
             }
@@ -28,6 +28,9 @@ function listen(channels) {
             if (statuses) {
                 for (let i = 0; i < statuses.length; i++) {
                     let tweet = statuses[i];
+                    if (tweet.full_text != null) {
+                        tweet.text = tweet.full_text;
+                    }
                     if (!tweetlist.includes(tweet.id_str) && tweet.text != null && tweet.text.indexOf('RT ') !== 0 && !tweet.retweet_count && !tweet.favorite_count) {
                         let userId = tweet.user.id_str;
                         let blacklist = helpers.config.blacklist;
@@ -67,6 +70,10 @@ function listen(channels) {
         // Get tweets from stream
         var stream = twitApi.stream('statuses/filter', {track: hashtags});
         stream.on('tweet', tweet => {
+            if (tweet.extended_tweet != null) {
+                tweet.entities.hashtags = tweet.entities.hashtags.concat(tweet.extended_tweet.entities.hashtags);
+                tweet.text = tweet.extended_tweet.full_text;
+            }
             if (tweet.text != null && tweet.text.indexOf('RT ') !== 0 && !tweet.retweet_count && !tweet.favorite_count) {
                 let userId = tweet.user.id_str;
                 let blacklist = helpers.config.blacklist;
