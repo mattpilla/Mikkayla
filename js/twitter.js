@@ -45,19 +45,23 @@ function listen(channels) {
                             continue;
                         }
                         let tags = tweet.entities.hashtags;
+                        let taglist = [];
                         for (let i = 0; i < tags.length; i++) {
                             let tag = '#' + tags[i].text.toLowerCase();
-                            let tagChannels = zsr[tag];
-                            if (tagChannels !== undefined) {
-                                for (let j = 0; j < tagChannels.length; j++) {
-                                    let user = tweet.user.screen_name;
-                                    let channel = channels.get(tagChannels[j]);
-                                    if (channel !== undefined) {
-                                        channel.send(
-                                            `\`${tag} tweet by ${user} on ${new Date(tweet.created_at).toUTCString()}\`: ${tweet.text}\n<https://twitter.com/${user}/status/${tweet.id_str}>`
-                                        );
-                                        tweetlist.push(tweet.id_str);
-                                        helpers.saveJSON('tweetlist', tweetlist, () => console.log('tweet added'));
+                            if (!taglist.includes(tag)) {
+                                taglist.push(tag);
+                                let tagChannels = zsr[tag];
+                                if (tagChannels !== undefined) {
+                                    for (let j = 0; j < tagChannels.length; j++) {
+                                        let user = tweet.user.screen_name;
+                                        let channel = channels.get(tagChannels[j]);
+                                        if (channel !== undefined) {
+                                            channel.send(
+                                                `\`${tag} tweet by ${user} on ${new Date(tweet.created_at).toUTCString()}\`: ${tweet.text}\n<https://twitter.com/${user}/status/${tweet.id_str}>`
+                                            );
+                                            tweetlist.push(tweet.id_str);
+                                            helpers.saveJSON('tweetlist', tweetlist, () => console.log('tweet added'));
+                                        }
                                     }
                                 }
                             }
@@ -85,19 +89,23 @@ function listen(channels) {
                     }
                 }
                 let tags = tweet.entities.hashtags;
+                let taglist = [];
                 for (let i = 0; i < tags.length; i++) {
                     let tag = '#' + tags[i].text.toLowerCase();
-                    let tagChannels = zsr[tag];
-                    if (tagChannels !== undefined) {
-                        for (let j = 0; j < tagChannels.length; j++) {
-                            let user = tweet.user.screen_name;
-                            let channel = channels.get(tagChannels[j]);
-                            if (channel !== undefined) {
-                                channel.send(
-                                    `\`New ${tag} tweet by ${user}\`: ${tweet.text}\n<https://twitter.com/${user}/status/${tweet.id_str}>`
-                                );
-                                tweetlist.push(tweet.id_str);
-                                helpers.saveJSON('tweetlist', tweetlist, () => console.log('tweet added'));
+                    if (!taglist.includes(tag)) {
+                        taglist.push(tag);
+                        let tagChannels = zsr[tag];
+                        if (tagChannels !== undefined) {
+                            for (let j = 0; j < tagChannels.length; j++) {
+                                let user = tweet.user.screen_name;
+                                let channel = channels.get(tagChannels[j]);
+                                if (channel !== undefined) {
+                                    channel.send(
+                                        `\`New ${tag} tweet by ${user}\`: ${tweet.text}\n<https://twitter.com/${user}/status/${tweet.id_str}>`
+                                    );
+                                    tweetlist.push(tweet.id_str);
+                                    helpers.saveJSON('tweetlist', tweetlist, () => console.log('tweet added'));
+                                }
                             }
                         }
                     }
