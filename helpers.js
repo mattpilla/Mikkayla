@@ -73,7 +73,11 @@ module.exports = {
     // Message home channels
     msgHome: (channels, message) => {
         for (var i = 0; i < config.home.length; i++) {
-            channels.get(config.home[i]).send(message);
+            try {
+                channels.get(config.home[i]).send(message);
+            } catch(err) {
+                console.log('what the fuck? ' + err.message);
+            }
         }
     }
 }
