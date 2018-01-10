@@ -12,6 +12,7 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `.random <integer>`: Gives a random number up to and including the given int
 - `.colbol`: I chose this command because Colbol is greatly underrepresented in terms of content
 - `.pannenkoek`: Motivational poster
+- `.inspiration`: Posts an image generated from http://inspirobot.me
 - `.like (channel id)`: Give that message a like! Optionally, specify a channel to send it to
 - `.gg`: Game on.
 - `.zfg`: Random selection from a list of old ZFG quotes

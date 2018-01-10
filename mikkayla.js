@@ -6,6 +6,7 @@ const speedrun = require('./js/speedrun.js');
 const pokemon = require('./js/pokemon.js');
 const youtube = require('./js/youtube.js');
 const twitter = require('./js/twitter.js');
+const request = require('request');
 
 // Start bot
 var bot = new Discord.Client();
@@ -77,6 +78,12 @@ bot.on('message', msg => {
             msg.channel.send(options={files: ['images/colbol.JPG']});
         } else if (txt === '.pannenkoek') {
             msg.channel.send(options={files: ['images/pannenkoek.png']});
+        } else if (txt === '.inspiration') {
+            request.get('http://inspirobot.me/api?generate=true', (error, response, body) => {
+                if (!error) {
+                    msg.channel.send(options={files: [body]});
+                }
+            });
         } else if (args[0] === '.like') {
             let chan = bot.channels.get(args[1]);
             if (!chan) {
@@ -158,7 +165,7 @@ bot.on('message', msg => {
                 }
                 say('`' + dayString + '`\n' + list + '```');
             } else {
-                require('request').get(`https://www.checkiday.com/${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`, (error, response, body) => {
+                request.get(`https://www.checkiday.com/${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`, (error, response, body) => {
                     body.replace(/>([^><]+)<\/a><\/h2><\/div><a/gm, (match, m1) => {
                         if (!m1.toLowerCase().startsWith('the start of')) {
                             list += m1 + '\n'
