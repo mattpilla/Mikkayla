@@ -46,7 +46,13 @@ function getWR(channel, args) {
                         }
                     }
                     let names = d.data.names;
-                    let runner = names.international + (names.japanese ? ' (' + names.japanese + ')' : '');
+                    let runner = '';
+                    if (names) {
+                        runner = names.international + (names.japanese ? ' (' + names.japanese + ')' : '');
+                    } else {
+                        let x = d.data.name.split(']');
+                        runner = x[x.length - 1];
+                    }
                     channel.send(`**${h}:${m}:${s}** by *${runner}* on *${run.date}*\n${data.data.weblink}`);
                 }
             );
