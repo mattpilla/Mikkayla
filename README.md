@@ -23,6 +23,7 @@ With voice support, this project now runs best in a Linux environment, with depe
   - `.gamelist (remove <number>)`: Removes specific game from list
   - `.gamelist (random)`: Gives random game from list
   - `.gamelist (number)`: Gives specific game from list
+- `.rank <name or number>`: Gives [SSBMRank 2017](http://liquipedia.net/smash/SSBMRank) info on given player or rank number
 - `.roulette`: Play Russian roulette without the threat of actually dying
 - `.roster`: Gives the SSBM character list for easy copy/paste
 - `.holiday (date)`: Prints list of holidays for the day (in GMT)

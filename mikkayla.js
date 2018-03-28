@@ -27,10 +27,11 @@ rl.on('line', function (line) {
 // Read all JSON in as objects
 var zfgQuotes = helpers.getJSON('json/zfgQuotes.json');
 var gamelist = helpers.getJSON('json/gamelist.json');
-var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json', 'utf8');
-var items = helpers.getJSON('json/item.json', 'utf8');
-var tech = helpers.getJSON('json/tech.json', 'utf8');
-var holidays = helpers.getJSON('json/holidays.json', 'utf8');
+var ranks = helpers.getJSON('json/SSBMRank2017.json');
+var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json');
+var items = helpers.getJSON('json/item.json');
+var tech = helpers.getJSON('json/tech.json');
+var holidays = helpers.getJSON('json/holidays.json');
 
 // Bullets left in .roulette
 var gun = 0;
@@ -137,6 +138,29 @@ bot.on('message', msg => {
                         say('`' + (index + 1) + ':` ' + gamelist[index]);
                     }
                     break;
+            }
+        } else if (args[0] === '.rank' && args.length > 1) {
+            let query = txt.substr(6);
+            let queryLc = query.toLowerCase();
+            let rankNum = Number.parseInt(query);
+            let record;
+            let fuzzy = false; // Was the query an include?
+            if (rankNum && rankNum > 0 && rankNum <= 100) {
+                record = ranks[rankNum - 1];
+            } else if (queryLc === 'mang0') {
+                // lmao...
+                record = ranks[2];
+            } else {
+                record = ranks.find(rank => rank.name.toLowerCase() === queryLc);
+                if (!record) {
+                    record = ranks.find(rank => rank.name.toLowerCase().includes(queryLc));
+                    fuzzy = !!record; // set fuzzy to true if matched here
+                }
+            }
+            if (record) {
+                say(`${fuzzy ? 'did you mean...\n' : ''}__SSBMRank2017__ #${record.rank}: ${record.flag} **${record.name}** [${record.mains.join(', ')}] \`Score: ${record.score} (${record.delta})\``);
+            } else {
+                say('no results for **' + query + '**');
             }
         } else if (txt === '.roulette') {
             if (!gun) {
