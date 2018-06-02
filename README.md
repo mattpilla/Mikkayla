@@ -44,6 +44,7 @@ Audio files aren't tracked in this repo, so they'll have to be synced manually
 - `!welldone`: Plays DK64 "WELL DONE" clip
 - `!gay`: Play iDubbbz "I'm Gay" clip
 - `!catchphrase`: Plays one of Mikkayla's catchphrases
+- `!leave`: Says goodbye and leaves the voice channel
 
 ### Admin Only
 - `.sleep (@bot)`: Sets bot to DND; ignores everything until woken
