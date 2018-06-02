@@ -268,8 +268,8 @@ bot.on('message', msg => {
                     function (data) {
                         if (data.cod === '200') {
                             let datum = data.list[0];
-                            say('weather for `' + args[1] + '` (*'
-                                + data.city.name + '*): **' + Math.round(datum.main.temp) + '°**F [humidity: **' + datum.main.humidity + '**%, wind: **' + Math.round(datum.wind.speed) + '**mph] *' + datum.weather[0].description + '*');
+                            msg.channel.send(
+                                `weather for \`${args[1]}\` (*${data.city.name}*): **${Math.round(datum.main.temp)}°**F [humidity: **${datum.main.humidity}**%, wind: **${Math.round(datum.wind.speed)}**mph] *${datum.weather[0].description}*`, {files: [`http://openweathermap.org/img/w/${datum.weather[0].icon}.png`]});
                         }
                         else {
                             say('invalid zip..');
