@@ -209,15 +209,24 @@ bot.on('message', msg => {
         /***
          * Color Shit
          ***/
-        else if (/^#[0-9a-fA-F]{6}$/.test(txt)) {
-            let color = txt.substr(1);
+        else if (/^#(?:[0-9a-fA-F]{3}){1,2}$/.test(txt) || /^rgb\([\d, ]+\)$/.test(txt)) {
+            let type = 'rgb';
+            let color = txt;
+            if (txt[0] === '#') {
+                type = 'hex';
+                color = txt.substr(1);
+            }
             helpers.requestJSON(
-                'http://thecolorapi.com/id?hex=' + color,
-                function (data) {
+                `http://thecolorapi.com/id?${type}=${color}`,
+                data => {
                     msg.channel.send(
-                        '`' + data.hex.value + '` ' + data.rgb.value + '\n**' + data.name.value + '** `(' + (data.name.exact_match_name ? 'exact' : data.name.closest_named_hex) + ')`',
+`\`${data.hex.value}\` ${data.rgb.value}
+**${data.name.value}** \`(${data.name.exact_match_name ? 'exact' : data.name.closest_named_hex})\``,
                         {files: [`https://dummyimage.com/40x40/${color}/${color}.jpg`]}
                     );
+                },
+                () => {
+                    say('`rgb(<0-255>, <0-255>, <0-255>)`');
                 }
             );
         }

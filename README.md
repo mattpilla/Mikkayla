@@ -29,6 +29,7 @@ With voice support, this project now runs best in a Linux environment, with depe
 - `.holiday (date)`: Prints list of holidays for the day (in GMT)
 - `.wr <game> (category)`: Gives world record for game and category from [speedrun.com API](https://github.com/speedruncom/api)
 - `#<hex color>`: Gives color info
+- `rgb(<0-255>, <0-255>, <0-255>)`: Gives color info
 - `.data <Pokemon name or number> (shiny)`: Gives types, abilities, stats, and sprite of Pokemon. Thanks to [Pokéapi](https://pokeapi.co/). Bless
 - `.define <search term>`: Gives top definition of term from Urban Dictionary
 - `.weather <zip code>`: Gives the approximate temperature for the US zip code
