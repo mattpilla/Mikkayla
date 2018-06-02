@@ -1,26 +1,32 @@
 {
-  "name": "mikkayla",
-  "version": "1.0.0",
-  "description": "discord bot",
-  "main": "mikkayla.js",
-  "dependencies": {
-    "discord.js": "^11.0.0",
-    "erlpack": "github:hammerandchisel/erlpack",
-    "mysql": "^2.12.0",
-    "node-opus": "^0.2.4",
-    "request": "^2.79.0",
-    "twit": "^2.2.9",
-    "uws": "^8.14.1"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mattpilla/Mikkayla.git"
-  },
-  "author": "Kaztalek",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mattpilla/Mikkayla/issues"
-  },
-  "homepage": "https://github.com/mattpilla/Mikkayla#readme"
+    "author": "Kaztalek",
+    "bugs": {
+        "url": "https://github.com/mattpilla/Mikkayla/issues"
+    },
+    "dependencies": {
+        "discord.js": "^11.3.2",
+        "erlpack": "github:hammerandchisel/erlpack",
+        "libsodium": "^0.7.3",
+        "mysql": "^2.15.0",
+        "node-opus": "^0.2.9",
+        "request": "^2.87.0",
+        "twit": "^2.2.10",
+        "uws": "^8.14.1"
+    },
+    "description": "discord bot",
+    "devDependencies": {
+        "nodemon": "^1.17.5"
+    },
+    "homepage": "https://github.com/mattpilla/Mikkayla#readme",
+    "license": "ISC",
+    "main": "mikkayla.js",
+    "name": "mikkayla",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mattpilla/Mikkayla.git"
+    },
+    "scripts": {
+        "start": "nodemon mikkayla.js"
+    },
+    "version": "1.0.0"
 }
