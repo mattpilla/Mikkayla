@@ -274,6 +274,8 @@ bot.on('message', msg => {
                 function (data) {
                     if (data.images.length) {
                         msg.channel.send(options={files: [helpers.read(data.images).imageUrl]});
+                    } else {
+                        say('no results for **' + term + '**');
                     }
                 }
             );
