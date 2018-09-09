@@ -272,8 +272,12 @@ bot.on('message', msg => {
             helpers.requestJSON(
                 `https://www.contextualwebsearch.com/api/Search/GetImageSearch?q=${encodeURIComponent(term)}&pageNumber=1&pageSize=35&autoCorrect=false`,
                 function (data) {
-                    if (data.images.length) {
-                        msg.channel.send(options={files: [helpers.read(data.images).imageUrl]});
+                    let images = data.images.filter(image => {
+                        let ext = image.imageUrl.toLowerCase().substr(-3);
+                        return ext === 'png' || ext === 'jpg' || ext === 'gif';
+                    });
+                    if (images.length) {
+                        msg.channel.send(options={files: [helpers.read(images).imageUrl]});
                     } else {
                         say('no results for **' + term + '**');
                     }
