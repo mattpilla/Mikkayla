@@ -1,0 +1,823 @@
+[
+    {
+        "delta": "0",
+        "flag": ":flag_us:",
+        "mains": ["Jigglypuff"],
+        "name": "Hungrybox",
+        "rank": 1,
+        "score": 100
+    },
+    {
+        "delta": "0",
+        "flag": ":flag_se:",
+        "mains": ["Peach", "Fox"],
+        "name": "Armada",
+        "rank": 2,
+        "score": 98.9
+    },
+    {
+        "delta": "+3",
+        "flag": ":flag_se:",
+        "mains": ["Fox"],
+        "name": "Leffen",
+        "rank": 3,
+        "score": 98.7
+    },
+    {
+        "delta": "+1",
+        "flag": ":flag_us:",
+        "mains": ["Sheik", "Fox", "Samus"],
+        "name": "Plup",
+        "rank": 4,
+        "score": 97.4
+    },
+    {
+        "delta": "-2",
+        "flag": ":flag_us:",
+        "mains": [
+            "Falco","Fox"],
+        "name": "Mango",
+        "rank": 5,
+        "score": 96.2
+    },
+    {
+        "delta": "-2",
+        "flag": ":flag_us:",
+        "mains": [
+            "Marth",
+            "Sheik","Fox"],
+        "name": "Mew2King",
+        "rank": 6,
+        "score": 96.1
+    },
+    {
+        "delta": "+15",
+        "flag": ":flag_us:",
+        "mains": ["Marth"],
+        "name": "Zain",
+        "rank": 7,
+        "score": 94.6
+    },
+    {
+        "delta": "0",
+        "flag": ":flag_us:",
+        "mains": ["Captain Falcon"],
+        "name": "Wizzrobe",
+        "rank": 8,
+        "score": 94.4
+    },
+    {
+        "delta": "+15",
+        "flag": ":flag_jp:",
+        "mains": ["Yoshi"],
+        "name": "aMSa",
+        "rank": 9,
+        "score": 93.4
+    },
+    {
+        "delta": "-3",
+        "flag": ":flag_us:",
+        "mains": ["Pikachu", "Falco", "Young Link"],
+        "name": "Axe",
+        "rank": 10,
+        "score": 92.5
+    },
+    {
+        "delta": "-1",
+        "flag": ":flag_us:",
+        "mains": ["Captain Falcon", "Falco"],
+        "name": "S2J",
+        "rank": 11,
+        "score": 91.3
+    },
+    {
+        "delta": "-3",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "SFAT",
+        "rank": 12,
+        "score": 90.7
+    },
+    {
+        "delta": "+3",
+        "flag": ":flag_us:",
+        "mains": ["Sheik", "Peach"],
+        "name": "Swedish Delight",
+        "rank": 13,
+        "score": 89.1
+    },
+    {
+        "delta": "0",
+        "flag": ":flag_us:",
+        "mains": ["Samus"],
+        "name": "Duck",
+        "rank": 14,
+        "score": 88.9
+    },
+    {
+        "delta": "+6",
+        "flag": ":flag_us:",
+        "mains": [
+            "Marth","Fox"],
+        "name": "PewPewU",
+        "rank": 15,
+        "score": 87.9
+    },
+    {
+        "delta": "+4",
+        "flag": ":flag_ni:",
+        "mains": ["Captain Falcon", "Ganondorf"],
+        "name": "n0ne",
+        "rank": 16,
+        "score": 86.7
+    },
+    {
+        "delta": "-2",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "Crush",
+        "rank": 17,
+        "score": 86.6
+    },
+    {
+        "delta": "-1",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "Lucky",
+        "rank": 18,
+        "score": 86
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Ice Climbers"],
+        "name": "Bananas",
+        "rank": 19,
+        "score": 85
+    },
+    {
+        "delta": "+33",
+        "flag": ":flag_us:",
+        "mains": ["Ice Climbers"],
+        "name": "ARMY",
+        "rank": 20,
+        "score": 84.9
+    },
+    {
+        "delta": "+5",
+        "flag": ":flag_us:",
+        "mains": ["Peach"],
+        "name": "lloD",
+        "rank": 21,
+        "score": 83.8
+    },
+    {
+        "delta": "-4",
+        "flag": ":flag_us:",
+        "mains": [
+            "Falco","Fox"],
+        "name": "Westballz",
+        "rank": 22,
+        "score": 83
+    },
+    {
+        "delta": "0",
+        "flag": ":flag_us:",
+        "mains": ["Samus"],
+        "name": "HugS",
+        "rank": 23,
+        "score": 82.3
+    },
+    {
+        "delta": "+50",
+        "flag": ":flag_us:",
+        "mains": [
+            "Fox",
+            "Sheik","Marth"],
+        "name": "AbsentPage",
+        "rank": 24,
+        "score": 81.6
+    },
+    {
+        "delta": "+9",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "KJH",
+        "rank": 25,
+        "score": 80.8
+    },
+    {
+        "delta": "+10",
+        "flag": ":flag_us:",
+        "mains": [
+            "Marth","Fox"],
+        "name": "Rishi",
+        "rank": 26,
+        "score": 79.3
+    },
+    {
+        "delta": "+16",
+        "flag": ":flag_us:",
+        "mains": ["Captain Falcon"],
+        "name": "Gahtzu",
+        "rank": 27,
+        "score": 79.1
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": [
+            "Fox","Peach"],
+        "name": "Fiction",
+        "rank": 28,
+        "score": 78.1
+    },
+    {
+        "delta": "-16",
+        "flag": ":flag_us:",
+        "mains": [
+            "Sheik","Marth"],
+        "name": "Shroomed",
+        "rank": 29,
+        "score": 77
+    },
+    {
+        "delta": "0",
+        "flag": ":flag_us:",
+        "mains": [
+            "Fox","Marth"],
+        "name": "Colbol",
+        "rank": 30,
+        "score": 75.3
+    },
+    {
+        "delta": "+1",
+        "flag": ":flag_ca:",
+        "mains": ["Fox", "Sheik"],
+        "name": "Ryan Ford",
+        "rank": 31,
+        "score": 74.9
+    },
+    {
+        "delta": "-13",
+        "flag": ":flag_us:",
+        "mains": ["Marth"],
+        "name": "La Luna",
+        "rank": 32,
+        "score": 74.5
+    },
+    {
+        "delta": "+19",
+        "flag": ":flag_us:",
+        "mains": ["Sheik"],
+        "name": "Captain Faceroll",
+        "rank": 33,
+        "score": 74
+    },
+    {
+        "delta": "+50",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "iBDW",
+        "rank": 34,
+        "score": 72.9
+    },
+    {
+        "delta": "-4",
+        "flag": ":flag_es:",
+        "mains": ["Peach"],
+        "name": "Trif",
+        "rank": 35,
+        "score": 71.1
+    },
+    {
+        "delta": "-3",
+        "flag": ":flag_us:",
+        "mains": ["Fox", "Falco"],
+        "name": "Syrox",
+        "rank": 36,
+        "score": 70.2
+    },
+    {
+        "delta": "+33",
+        "flag": ":flag_us:",
+        "mains": ["Peach"],
+        "name": "Kalamazhu",
+        "rank": 37,
+        "score": 69.4
+    },
+    {
+        "delta": "+7",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "Hax",
+        "rank": 38,
+        "score": 68.3
+    },
+    {
+        "delta": "-11",
+        "flag": ":flag_de:",
+        "mains": ["Fox"],
+        "name": "Ice",
+        "rank": 39,
+        "score": 68.2
+    },
+    {
+        "delta": "+9",
+        "flag": ":flag_us:",
+        "mains": ["Falco"],
+        "name": "Ginger",
+        "rank": 40,
+        "score": 67.4
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Jigglypuff"],
+        "name": "Michael",
+        "rank": 41,
+        "score": 66.8
+    },
+    {
+        "delta": "+5",
+        "flag": ":flag_us:",
+        "mains": ["Captain Falcon"],
+        "name": "Captain Smuckers",
+        "rank": 42,
+        "score": 66.3
+    },
+    {
+        "delta": "-18",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "MikeHaze",
+        "rank": 43,
+        "score": 64.4
+    },
+    {
+        "delta": "-7",
+        "flag": ":flag_us:",
+        "mains": ["Peach"],
+        "name": "Bladewise",
+        "rank": 44,
+        "score": 63.7
+    },
+    {
+        "delta": "+9",
+        "flag": ":flag_us:",
+        "mains": ["Sheik"],
+        "name": "Junebug",
+        "rank": 45,
+        "score": 63.6
+    },
+    {
+        "delta": "-35",
+        "flag": ":flag_us:",
+        "mains": ["Ice Climbers"],
+        "name": "ChuDat",
+        "rank": 46,
+        "score": 63.5
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_nz:",
+        "mains": ["Marth"],
+        "name": "Spud",
+        "rank": 47,
+        "score": 62.7
+    },
+    {
+        "delta": "-8",
+        "flag": ":flag_us:",
+        "mains": ["Falco"],
+        "name": "Santi",
+        "rank": 48,
+        "score": 62.4
+    },
+    {
+        "delta": "+51",
+        "flag": ":flag_us:",
+        "mains": ["Jigglypuff"],
+        "name": "2saint",
+        "rank": 49,
+        "score": 62
+    },
+    {
+        "delta": "-8",
+        "flag": ":flag_us:",
+        "mains": ["Fox", "Falco"],
+        "name": "Slox",
+        "rank": 50,
+        "score": 61.4
+    },
+    {
+        "delta": "+31",
+        "flag": ":flag_us:",
+        "mains": ["Falco"],
+        "name": "Rocky",
+        "rank": 51,
+        "score": 60.7
+    },
+    {
+        "delta": "+44",
+        "flag": ":flag_ca:",
+        "mains": ["Fox"],
+        "name": "moky",
+        "rank": 52,
+        "score": 60.2
+    },
+    {
+        "delta": "+8",
+        "flag": ":flag_us:",
+        "mains": ["Sheik"],
+        "name": "Spark",
+        "rank": 53,
+        "score": 59.2
+    },
+    {
+        "delta": "+4",
+        "flag": ":flag_us:",
+        "mains": ["Falco"],
+        "name": "Squid",
+        "rank": 54,
+        "score": 58.9
+    },
+    {
+        "delta": "+28",
+        "flag": ":flag_us:",
+        "mains": [
+            "Jigglypuff","Fox"],
+        "name": "Jerry",
+        "rank": 55,
+        "score": 58.8
+    },
+    {
+        "delta": "-15",
+        "flag": ":flag_gb:",
+        "mains": ["Fox"],
+        "name": "Professor Pro",
+        "rank": 56,
+        "score": 57.3
+    },
+    {
+        "delta": "+3",
+        "flag": ":flag_es:",
+        "mains": ["Sheik"],
+        "name": "Overtriforce",
+        "rank": 57,
+        "score": 53.1
+    },
+    {
+        "delta": "+4",
+        "flag": ":flag_us:",
+        "mains": [
+            "Luigi","Captain Falcon"],
+        "name": "Ka-Master",
+        "rank": 58,
+        "score": 52.1
+    },
+    {
+        "delta": "+29",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "Darktooth",
+        "rank": 59,
+        "score": 51.9
+    },
+    {
+        "delta": "+8",
+        "flag": ":flag_us:",
+        "mains": ["Sheik"],
+        "name": "Drephen",
+        "rank": 60,
+        "score": 51.6
+    },
+    {
+        "delta": "+11",
+        "flag": ":flag_us:",
+        "mains": ["Ice Climbers"],
+        "name": "Drunksloth",
+        "rank": 61,
+        "score": 50.7
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Marth"],
+        "name": "Stango",
+        "rank": 62,
+        "score": 48
+    },
+    {
+        "delta": "-7",
+        "flag": ":flag_us:",
+        "mains": ["Luigi"],
+        "name": "Abate",
+        "rank": 63,
+        "score": 47.9
+    },
+    {
+        "delta": "-25",
+        "flag": ":flag_nl:",
+        "mains": ["Sheik"],
+        "name": "Amsah",
+        "rank": 64,
+        "score": 46.8
+    },
+    {
+        "delta": "-30",
+        "flag": ":flag_us:",
+        "mains": [
+            "Ice Climbers","Marth"],
+        "name": "Nintendude",
+        "rank": 65,
+        "score": 46
+    },
+    {
+        "delta": "-22",
+        "flag": ":flag_se:",
+        "mains": ["Sheik"],
+        "name": "Android",
+        "rank": 66,
+        "score": 45.7
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Ice Climbers"],
+        "name": "Boyd",
+        "rank": 67,
+        "score": 45.3
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Jigglypuff"],
+        "name": "42nd",
+        "rank": 68,
+        "score": 45.2
+    },
+    {
+        "delta": "0",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "FatGoku",
+        "rank": 69,
+        "score": 44.9
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Ice Climbers"],
+        "name": "Sharkz",
+        "rank": 70,
+        "score": 44.5
+    },
+    {
+        "delta": "-7",
+        "flag": ":flag_us:",
+        "mains": [
+            "Fox","Marth"],
+        "name": "Cactuar",
+        "rank": 71,
+        "score": 44
+    },
+    {
+        "delta": "+8",
+        "flag": ":flag_us:",
+        "mains": ["Marth"],
+        "name": "Tai",
+        "rank": 72,
+        "score": 43
+    },
+    {
+        "delta": "-22",
+        "flag": ":flag_us:",
+        "mains": [
+            "Fox",
+            "Sheik","Falco"],
+        "name": "Kels",
+        "rank": 73,
+        "score": 42.9
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Falco"],
+        "name": "DaShizWiz",
+        "rank": 74,
+        "score": 42.8
+    },
+    {
+        "delta": "-8",
+        "flag": ":flag_us:",
+        "mains": ["Sheik", "Peach"],
+        "name": "Darkatma",
+        "rank": 75,
+        "score": 42.1
+    },
+    {
+        "delta": "-5",
+        "flag": ":flag_mx:",
+        "mains": ["Luigi"],
+        "name": "Eddy Mexico",
+        "rank": 76,
+        "score": 41.8
+    },
+    {
+        "delta": "-39",
+        "flag": ":flag_us:",
+        "mains": ["Jigglypuff"],
+        "name": "Prince Abu",
+        "rank": 77,
+        "score": 41.7
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "Zamu",
+        "rank": 78,
+        "score": 38.2
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Marth"],
+        "name": "Kalvar",
+        "rank": 79,
+        "score": 36.8
+    },
+    {
+        "delta": "+6",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "Uncle Mojo",
+        "rank": 80,
+        "score": 36.7
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": [
+            "Sheik","Fox"],
+        "name": "HTwa",
+        "rank": 81,
+        "score": 35.6
+    },
+    {
+        "delta": "-1",
+        "flag": ":flag_us:",
+        "mains": ["Fox", "Falco"],
+        "name": "Rik",
+        "rank": 82,
+        "score": 35.5
+    },
+    {
+        "delta": "+12",
+        "flag": ":flag_us:",
+        "mains": ["Captain Falcon"],
+        "name": "NMW",
+        "rank": 83,
+        "score": 35.2
+    },
+    {
+        "delta": "-9",
+        "flag": ":flag_us:",
+        "mains": ["Falco"],
+        "name": "King Momo",
+        "rank": 84,
+        "score": 34.3
+    },
+    {
+        "delta": "+12",
+        "flag": ":flag_ca:",
+        "mains": ["Jigglypuff"],
+        "name": "Legend",
+        "rank": 85,
+        "score": 33.5
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Fox", "Falco"],
+        "name": "Smashdaddy",
+        "rank": 86,
+        "score": 31.3
+    },
+    {
+        "delta": "-14",
+        "flag": ":flag_us:",
+        "mains": ["Fox", "Sheik"],
+        "name": "Cal",
+        "rank": 87,
+        "score": 29.4
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Marth"],
+        "name": "Jakenshaken",
+        "rank": 88,
+        "score": 29.4
+    },
+    {
+        "delta": "+10",
+        "flag": ":flag_us:",
+        "mains": [
+            "Falco","Fox"],
+        "name": "Ralph",
+        "rank": 89,
+        "score": 29
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Ice Climbers"],
+        "name": "Flipsy",
+        "rank": 90,
+        "score": 28.5
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Falco"],
+        "name": "TheRealThing",
+        "rank": 91,
+        "score": 28.1
+    },
+    {
+        "delta": "-13",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "MilkMan",
+        "rank": 92,
+        "score": 27.8
+    },
+    {
+        "delta": "-30",
+        "flag": ":flag_ca:",
+        "mains": ["Falco"],
+        "name": "Trulliam",
+        "rank": 93,
+        "score": 27.6
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Peach"],
+        "name": "Cob",
+        "rank": 94,
+        "score": 26.8
+    },
+    {
+        "delta": "-2",
+        "flag": ":flag_us:",
+        "mains": ["Marth"],
+        "name": "Iceman",
+        "rank": 95,
+        "score": 26.7
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": [
+            "Sheik","Fox"],
+        "name": "vortex",
+        "rank": 96,
+        "score": 26.3
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Falco"],
+        "name": "Magi",
+        "rank": 97,
+        "score": 26
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_nl:",
+        "mains": ["Yoshi"],
+        "name": "nebbii",
+        "rank": 98,
+        "score": 25.1
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Samus"],
+        "name": "Morsecode762",
+        "rank": 99,
+        "score": 23.9
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": [
+            "Falco","Fox"],
+        "name": "Azel",
+        "rank": 100,
+        "score": 23.6
+    }
+]

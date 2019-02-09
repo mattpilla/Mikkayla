@@ -27,7 +27,7 @@ rl.on('line', function (line) {
 // Read all JSON in as objects
 var zfgQuotes = helpers.getJSON('json/zfgQuotes.json');
 var gamelist = helpers.getJSON('json/gamelist.json');
-var ranks = helpers.getJSON('json/SSBMRank2017.json');
+var ranks = helpers.getJSON('json/SSBMRank2018.json');
 var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json');
 var items = helpers.getJSON('json/item.json');
 var tech = helpers.getJSON('json/tech.json');
@@ -142,14 +142,15 @@ bot.on('message', msg => {
         } else if (args[0] === '.rank' && args.length > 1) {
             let query = txt.substr(6);
             let queryLc = query.toLowerCase();
+            if (queryLc === 'mang0') {
+                // lmao...
+                queryLc = 'mango';
+            }
             let rankNum = Number.parseInt(query);
             let record;
             let fuzzy = false; // Was the query an include?
             if (rankNum && rankNum > 0 && rankNum <= 100) {
                 record = ranks[rankNum - 1];
-            } else if (queryLc === 'mang0') {
-                // lmao...
-                record = ranks[2];
             } else {
                 record = ranks.find(rank => rank.name.toLowerCase() === queryLc);
                 if (!record) {
@@ -158,7 +159,7 @@ bot.on('message', msg => {
                 }
             }
             if (record) {
-                say(`${fuzzy ? 'did you mean...\n' : ''}__SSBMRank2017__ #${record.rank}: ${record.flag} **${record.name}** [${record.mains.join(', ')}] \`Score: ${record.score} (${record.delta})\``);
+                say(`${fuzzy ? 'did you mean...\n' : ''}__SSBMRank2018__ #${record.rank}: ${record.flag} **${record.name}** [${record.mains.join(', ')}] \`Score: ${record.score} (${record.delta})\``);
             } else {
                 say('no results for **' + query + '**');
             }
