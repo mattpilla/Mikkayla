@@ -27,7 +27,8 @@ rl.on('line', function (line) {
 // Read all JSON in as objects
 var zfgQuotes = helpers.getJSON('json/zfgQuotes.json');
 var gamelist = helpers.getJSON('json/gamelist.json');
-var ranks = helpers.getJSON('json/SSBMRank2018.json');
+var ssbmRanks = helpers.getJSON('json/SSBMRank2018.json');
+var pgrRanks = helpers.getJSON('json/PGRv5.json');
 var mikkaylaLines = helpers.getJSON('json/mikkaylaLines.json');
 var items = helpers.getJSON('json/item.json');
 var tech = helpers.getJSON('json/tech.json');
@@ -139,8 +140,10 @@ bot.on('message', msg => {
                     }
                     break;
             }
-        } else if (args[0] === '.rank' && args.length > 1) {
-            let query = txt.substr(6);
+        } else if ((args[0] === '.rank' || args[0] === '.pgr') && args.length > 1) {
+            let pgr = args[0] === '.pgr';
+            let ranks = pgr ? pgrRanks : ssbmRanks;
+            let query = txt.substr(pgr ? 5 : 6);
             let queryLc = query.toLowerCase();
             if (queryLc === 'mang0') {
                 // lmao...
@@ -149,7 +152,7 @@ bot.on('message', msg => {
             let rankNum = Number.parseInt(query);
             let record;
             let fuzzy = false; // Was the query an include?
-            if (rankNum && rankNum > 0 && rankNum <= 100) {
+            if (rankNum && rankNum > 0 && rankNum <= 100 && (!pgr || rankNum <= 50)) {
                 record = ranks[rankNum - 1];
             } else {
                 record = ranks.find(rank => rank.name.toLowerCase() === queryLc);
@@ -159,7 +162,7 @@ bot.on('message', msg => {
                 }
             }
             if (record) {
-                say(`${fuzzy ? 'did you mean...\n' : ''}__SSBMRank2018__ #${record.rank}: ${record.flag} **${record.name}** [${record.mains.join(', ')}] \`Score: ${record.score} (${record.delta})\``);
+                say(`${fuzzy ? 'did you mean...\n' : ''}__${pgr ? 'PGRv5' : 'SSBMRank2018'}__ #${record.rank}: ${record.flag} **${record.name}** [${record.mains.join(', ')}] \`Score: ${record.score} (${record.delta})\``);
             } else {
                 say('no results for **' + query + '**');
             }

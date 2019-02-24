@@ -1,0 +1,414 @@
+[
+    {
+        "delta": "+3",
+        "flag": ":flag_mx:",
+        "mains": ["Marth", "Cloud", "Bayonetta"],
+        "name": "MkLeo",
+        "rank": 1,
+        "score": 100
+    },
+    {
+        "delta": "+3",
+        "flag": ":flag_us:",
+        "mains": ["Bayonetta", "Cloud", "Donkey Kong"],
+        "name": "Tweek",
+        "rank": 2,
+        "score": 98.8
+    },
+    {
+        "delta": "+3",
+        "flag": ":flag_us:",
+        "mains": ["Rosalina", "Olimar"],
+        "name": "Dabuz",
+        "rank": 3,
+        "score": 95.5
+    },
+    {
+        "delta": "-1",
+        "flag": ":flag_us:",
+        "mains": ["Zero Suit Samus", "Bowser"],
+        "name": "Nairo",
+        "rank": 4,
+        "score": 92.3
+    },
+    {
+        "delta": "-3",
+        "flag": ":flag_us:",
+        "mains": ["Bayonetta"],
+        "name": "Salem",
+        "rank": 5,
+        "score": 90.6
+    },
+    {
+        "delta": "+7",
+        "flag": ":flag_ca:",
+        "mains": ["Bayonetta", "Zero Suit Samus"],
+        "name": "Mistake",
+        "rank": 6,
+        "score": 88.5
+    },
+    {
+        "delta": "+10",
+        "flag": ":flag_us:",
+        "mains": ["Corrin"],
+        "name": "Cosmos",
+        "rank": 7,
+        "score": 88.4
+    },
+    {
+        "delta": "+2",
+        "flag": ":flag_nl:",
+        "mains": ["Sheik", "Cloud"],
+        "name": "Mr.R",
+        "rank": 8,
+        "score": 87.1
+    },
+    {
+        "delta": "+9",
+        "flag": ":flag_us:",
+        "mains": ["Bayonetta", "Peach", "Wii Fit Trainer"],
+        "name": "CaptainZack",
+        "rank": 9,
+        "score": 86.2
+    },
+    {
+        "delta": "+6",
+        "flag": ":flag_jp:",
+        "mains": [
+            "Cloud",
+            "Sonic",
+            "Roy","Corrin"],
+        "name": "komorikiri",
+        "rank": 10,
+        "score": 82.0
+    },
+    {
+        "delta": "-2",
+        "flag": ":flag_us:",
+        "mains": ["Sheik", "Zero Suit Samus"],
+        "name": "VoiD",
+        "rank": 11,
+        "score": 81.7
+    },
+    {
+        "delta": "+10",
+        "flag": ":flag_us:",
+        "mains": ["Peach", "Rosalina", "Zero Suit Samus"],
+        "name": "Samsora",
+        "rank": 12,
+        "score": 78.4
+    },
+    {
+        "delta": "+34",
+        "flag": ":flag_us:",
+        "mains": ["Fox"],
+        "name": "Light",
+        "rank": 13,
+        "score": 78.2
+    },
+    {
+        "delta": "+24",
+        "flag": ":flag_us:",
+        "mains": ["Captain Falcon"],
+        "name": "Fatality",
+        "rank": 14,
+        "score": 77.7
+    },
+    {
+        "delta": "0",
+        "flag": ":flag_jp:",
+        "mains": ["Bayonetta", "Mewtwo", "Meta Knight"],
+        "name": "Abadango",
+        "rank": 15,
+        "score": 74.9
+    },
+    {
+        "delta": "-9",
+        "flag": ":flag_us:",
+        "mains": ["Fox", "Diddy Kong"],
+        "name": "Larry Lurr",
+        "rank": 16,
+        "score": 74.9
+    },
+    {
+        "delta": "+3",
+        "flag": ":flag_us:",
+        "mains": ["Mario", "Zero Suit Samus"],
+        "name": "ANTi",
+        "rank": 17,
+        "score": 72.6
+    },
+    {
+        "delta": "-7",
+        "flag": ":flag_us:",
+        "mains": ["Luigi"],
+        "name": "Elegant",
+        "rank": 18,
+        "score": 72.5
+    },
+    {
+        "delta": "+5",
+        "flag": ":flag_us:",
+        "mains": ["Bayonetta"],
+        "name": "Lima",
+        "rank": 19,
+        "score": 69.2
+    },
+    {
+        "delta": "+21",
+        "flag": ":flag_us:",
+        "mains": ["Rosalina"],
+        "name": "falln",
+        "rank": 20,
+        "score": 68.7
+    },
+    {
+        "delta": "0",
+        "flag": ":flag_us:",
+        "mains": ["Pikachu", "Samus"],
+        "name": "ESAM",
+        "rank": 21,
+        "score": 68.0
+    },
+    {
+        "delta": "-10",
+        "flag": ":flag_us:",
+        "mains": ["Mewtwo", "R.O.B."],
+        "name": "WaDi",
+        "rank": 22,
+        "score": 66.7
+    },
+    {
+        "delta": "+9",
+        "flag": ":flag_jp:",
+        "mains": ["Duck Hunt"],
+        "name": "Raito",
+        "rank": 23,
+        "score": 66.5
+    },
+    {
+        "delta": "+20",
+        "flag": ":flag_jp:",
+        "mains": ["Mega Man", "Sheik", "Cloud", "Yoshi"],
+        "name": "Kameme",
+        "rank": 24,
+        "score": 64.2
+    },
+    {
+        "delta": "-6",
+        "flag": ":flag_us:",
+        "mains": [
+            "Zero Suit Samus","Captain Falcon"],
+        "name": "Marss",
+        "rank": 25,
+        "score": 63.4
+    },
+    {
+        "delta": "+1",
+        "flag": ":flag_jp:",
+        "mains": ["Olimar"],
+        "name": "Shuton",
+        "rank": 26,
+        "score": 61.0
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Mewtwo"],
+        "name": "SDX",
+        "rank": 27,
+        "score": 59.9
+    },
+    {
+        "delta": "+3",
+        "flag": ":flag_us:",
+        "mains": ["Diddy Kong"],
+        "name": "Zinoto",
+        "rank": 28,
+        "score": 59.8
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": [
+            "Sonic","Bayonetta"],
+        "name": "Wrath",
+        "rank": 29,
+        "score": 57.9
+    },
+    {
+        "delta": "-22",
+        "flag": ":flag_jp:",
+        "mains": ["Sonic"],
+        "name": "KEN",
+        "rank": 30,
+        "score": 56.0
+    },
+    {
+        "delta": "-6",
+        "flag": ":flag_us:",
+        "mains": ["Diddy Kong"],
+        "name": "MVD",
+        "rank": 31,
+        "score": 55.5
+    },
+    {
+        "delta": "+4",
+        "flag": ":flag_jp:",
+        "mains": ["Zero Suit Samus"],
+        "name": "Choco",
+        "rank": 32,
+        "score": 55.2
+    },
+    {
+        "delta": "-19",
+        "flag": ":flag_ca:",
+        "mains": ["Mario"],
+        "name": "Ally",
+        "rank": 33,
+        "score": 53.9
+    },
+    {
+        "delta": "+12",
+        "flag": ":flag_us:",
+        "mains": [
+            "Sheik","Rosalina"],
+        "name": "Vinnie",
+        "rank": 34,
+        "score": 53.4
+    },
+    {
+        "delta": "+7",
+        "flag": ":flag_us:",
+        "mains": [
+            "Diddy Kong","Luigi"],
+        "name": "Shoyo James",
+        "rank": 35,
+        "score": 51.8
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_ca:",
+        "mains": ["Pikachu", "Jigglypuff"],
+        "name": "Captain L",
+        "rank": 36,
+        "score": 51.8
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_jp:",
+        "mains": [
+            "Sheik","Diddy Kong"],
+        "name": "Nietono",
+        "rank": 37,
+        "score": 50.1
+    },
+    {
+        "delta": "+12",
+        "flag": ":flag_us:",
+        "mains": ["Meta Knight", "Falco"],
+        "name": "AC",
+        "rank": 38,
+        "score": 46.5
+    },
+    {
+        "delta": "+1",
+        "flag": ":flag_us:",
+        "mains": ["Bayonetta", "Meta Knight"],
+        "name": "tyroy",
+        "rank": 39,
+        "score": 43.3
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": [
+            "Meta Knight","Bayonetta"],
+        "name": "Rags",
+        "rank": 40,
+        "score": 41.7
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_jp:",
+        "mains": ["Zero Suit Samus"],
+        "name": "shky",
+        "rank": 41,
+        "score": 41.0
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": [
+            "Cloud","Zero Suit Samus"],
+        "name": "Ned",
+        "rank": 42,
+        "score": 38.6
+    },
+    {
+        "delta": "+6",
+        "flag": ":flag_us:",
+        "mains": ["Mario"],
+        "name": "Zenyou",
+        "rank": 43,
+        "score": 36.9
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_mx:",
+        "mains": ["Mr. Game &amp; Watch"],
+        "name": "Maister",
+        "rank": 44,
+        "score": 36.0
+    },
+    {
+        "delta": "-19",
+        "flag": ":flag_us:",
+        "mains": ["Ryu"],
+        "name": "Darkshad",
+        "rank": 45,
+        "score": 34.0
+    },
+    {
+        "delta": "-12",
+        "flag": ":flag_jp:",
+        "mains": [
+            "Lucario","Ryu"],
+        "name": "Tsu-",
+        "rank": 46,
+        "score": 33.5
+    },
+    {
+        "delta": "-4",
+        "flag": ":flag_us:",
+        "mains": ["Sonic"],
+        "name": "6WX",
+        "rank": 47,
+        "score": 31.9
+    },
+    {
+        "delta": "NEW",
+        "flag": ":flag_us:",
+        "mains": ["Pac-Man"],
+        "name": "Sinji",
+        "rank": 48,
+        "score": 31.6
+    },
+    {
+        "delta": "+2",
+        "flag": ":flag_ca:",
+        "mains": [
+            "Ryu","Bayonetta"],
+        "name": "Locus",
+        "rank": 49,
+        "score": 31.5
+    },
+    {
+        "delta": "-21",
+        "flag": ":flag_jp:",
+        "mains": ["Rosalina"],
+        "name": "Kirihara",
+        "rank": 50,
+        "score": 30.3
+    }
+]
